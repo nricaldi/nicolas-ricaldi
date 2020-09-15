@@ -1,0 +1,51 @@
+
+<div class="container project">
+    <div class="content">
+        <div class="one">
+            <h1>{{ project.title }}</h1>
+            <img src="{{ project.img }}" alt="{{ project.title }} image">        
+        </div>
+        
+        <div class="two">
+            <!-- <button class="button-red">Demo</button>
+            <button class="button-gray">Code</button> -->
+    
+            <div class="top">
+                <a href="{{ project.codeLink }}" target="_blank">  <button class="button-gray">Code</button></a>
+                <a href="{{ project.demoLink }}" target="_blank">  <button class="button-red">Site</button></a>
+            </div>
+    
+            <h3>Technologies</h3>
+    
+            <ul>
+                <li><span class="sub-heading">Front End:</span>
+                    <span *ngFor="let word of project.frontEnd">
+                        {{ word }}, 
+                    </span>
+                </li>
+    
+                <li><span class="sub-heading">Back End:</span>
+                    <span *ngFor="let word of project.backEnd">
+                        {{ word }}, 
+                    </span>
+                </li>
+    
+                <li><span class="sub-heading">Deployment:</span>
+                    <span *ngFor="let word of project.deployment">
+                        {{ word }}, 
+                    </span>
+                </li>
+            </ul>
+    
+            <h3>Description</h3>
+            <p>{{ project.description }}</p>
+
+            <div class="bottom"> 
+                <a href="{{ project.codeLink }}" target="_blank">  <button class="button-gray">Code</button></a>
+                <a href="{{ project.demoLink }}" target="_blank">  <button class="button-red">Site</button></a>
+            </div>
+    
+    
+        </div>
+    </div>
+</div>

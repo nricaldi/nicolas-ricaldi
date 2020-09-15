@@ -1,0 +1,193 @@
+.main {
+    position: relative;
+    height: 65vh;
+    /* max-height: 1200px; */
+    /* max-width: 1750px; */
+    max-width: 2000px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 2rem;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+#nicolas,
+#ricaldi {
+    position: absolute;
+    color: #333540;
+    font-size: 5rem;
+}
+
+#nicolas {
+    left: -5%;
+    top: 15%;
+}
+
+#ricaldi {
+    right: -1%;
+    bottom: 10%;
+}
+
+.hero {
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 20px;
+}
+.hero h2 {
+    font-size: 18px;
+}
+.hero h3 {
+    font-size: 14px;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+.hero .button-red {
+    margin-right: .5rem;
+}
+
+@keyframes nick {
+    0%   { width: 100%; }
+    50%  { width: 80%; }
+    100% { width: 100%; }
+}
+
+@keyframes title {
+    from {
+        top: -10px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+@media(min-width: 375px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+    .hero h2 {
+        font-size: 26px;
+    }
+    .hero h3 {
+        font-size: 1rem;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+        color: var(--dark-gray);
+    }
+    .hero .button-red {
+        margin-right: 1rem;
+    }
+}
+
+@media(min-width: 768px) {
+    .main {
+        height: 80vh;
+        padding: 0 4rem;
+    }
+    
+    #nicolas,
+    #ricaldi {
+        font-size: 8rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    .hero h3 {
+        font-size: 1.5rem;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+    }
+    .hero .button-red {
+        margin-right: 1rem;
+    }
+}
+ 
+
+@media(min-width: 1024px) {
+    .main {
+        height: 100vh;
+        padding: 0 6rem;
+    }
+ 
+    #nicolas,
+    #ricaldi {
+        font-size: 12rem;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+    
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .hero h3 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+@media(min-width: 1750px) {
+    #nicolas,
+    #ricaldi {
+        font-size: 18rem;
+    }
+
+    #nicolas {
+        left: 0;
+        top: 15%;
+    }
+    
+    #ricaldi {
+        right: 0;
+        bottom: 5%;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+    .hero h2 {
+        font-size: 3.5rem;
+    }
+    .hero h3 {
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .hero .button-red {
+        margin-right: 1rem;
+    }
+}
+
+
+@media(min-width: 2000px) {
+    .main {
+        padding: 0 8rem;
+    }
+
+    .hero h1 {
+        font-size: 5.5rem;
+    }
+    .hero h2 {
+        font-size: 4.5rem;
+    }
+    .hero h3 {
+        font-size: 2.5rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+}

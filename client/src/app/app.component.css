@@ -1,0 +1,12 @@
+
+.router {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 150px;
+}
+
+.footer {   
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}

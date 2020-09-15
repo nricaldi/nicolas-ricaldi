@@ -1,0 +1,42 @@
+
+
+<nav id="nav">
+
+    <div class="navbar">
+        <img (click)="scrollToElement('home')" routerLink="" src="../../assets/img/logo-gray.svg" alt="logo" class="logo">
+        <ul [ngClass]="isOpen ? 'active' : 'not-active'" >
+            <li (click)="scrollToElement('home')" ><a routerLink="">home</a></li>
+            <li (click)="scrollToElement('about')" ><a routerLink="">about</a></li>
+            <li (click)="scrollToElement('work')" ><a routerLink="">work</a></li>
+            <li (click)="scrollToElement('contact')"><a routerLink="">contact</a></li>
+            <!-- <li (click)="scrollToElement('contact')"><a href="#contact">contact</a></li> -->
+        </ul>
+        
+        <!-- Burger Menu -->
+        <svg *ngIf="!isOpen"
+            class="burger" 
+            (click)="toggleMenu()"
+            xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 19">
+            <g id="hamburger" transform="translate(-313 -18)">
+            <rect [ngClass]="isOpen ? 'burger-active' : 'burger-not-active'" id="top" data-name="Rectangle 48" width="30" height="3" rx="1.5" transform="translate(313 18)" fill="#a2a2a2"/>
+            <rect [ngClass]="isOpen ? 'burger-active' : 'burger-not-active'" id="middle" data-name="Rectangle 49" width="23" height="3" rx="1.5" transform="translate(320 26)" fill="#a2a2a2"/>
+            <rect [ngClass]="isOpen ? 'burger-active' : 'burger-not-active'" id="bottom" data-name="Rectangle 50" width="30" height="3" rx="1.5" transform="translate(313 34)" fill="#a2a2a2"/>
+            </g>
+        </svg>
+    
+        <!-- X -->
+        <svg *ngIf="isOpen"
+            class="burger" 
+            (click)="toggleMenu()"
+            xmlns="http://www.w3.org/2000/svg" width="23.335" height="20" viewBox="0 0 23.335 23.335">
+            <g id="X" transform="translate(-323.333 -37.833)">
+            <g id="Group_33" data-name="Group 33" transform="translate(7 14)">
+                <rect id="Rectangle_48" data-name="Rectangle 48" width="30" height="3" rx="1.5" transform="translate(316.333 45.046) rotate(-45)" fill="#23242F"/>
+                <rect id="Rectangle_50" data-name="Rectangle 50" width="30" height="3" rx="1.5" transform="translate(318.454 23.833) rotate(45)" fill="#23242F"/>
+            </g>
+            </g>
+        </svg>
+    </div>
+
+</nav>
+
