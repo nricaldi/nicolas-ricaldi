@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    opacity: 0;
 }
 
 .proj:last-child{
@@ -149,4 +150,34 @@
     }
 
 
+}
+
+
+
+.animation1 {
+    animation: anim1 1s forwards ease-out;
+}
+
+.animation2 {
+    animation: anim1 1s .5s forwards ease-out;
+}
+
+.animation3 {
+    animation: anim1 1s .7s forwards ease-out;
+}
+
+.animation4 {
+    animation: anim1 1s 1s forwards ease-out;
+}
+
+
+@keyframes anim1{
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Renderer2, Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-work',
@@ -7,26 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _renderer2: Renderer2, @Inject(DOCUMENT) private _document: Document) { }
 
   ngOnInit(): void {
 
-    const projects : Element = document.querySelector('.anim');
+    // const projects = document.querySelector('.anim');
+    const projects = document.querySelectorAll('.anim');
 
 
-    const observer : IntersectionObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
 
-      console.log(entries);
+      let i = 1;
 
-      if(entries[0].intersectionRatio > 0) {
-        // entries[0].target.style.animation
-      }
+      entries.forEach(entry => {
+        if(entry.intersectionRatio > 0) {
+          entry.target.classList.add('animation'+i);
+          i++;
+        }
+        else {
+          entry.target.classList.remove('animation'+i);
+        }
+      })
+
+      i = 1;
+      
       
     }) 
 
-    observer.observe(projects);
-
-
+    projects.forEach(project => {
+      observer.observe(project); 
+    })
 
   }
 
