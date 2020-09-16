@@ -17,6 +17,7 @@
     color: var(--dark-gray);
     line-height: 28px;
     font-size: 14px;
+    /* opacity: 0; */
 }
 
 .who {
@@ -42,13 +43,13 @@
 }
 
 
-@media(min-width: 768px) {
+/* @media(min-width: 768px) {
 
     .about-content {
-        /* padding: 5rem 4rem; */
+        padding: 5rem 4rem;
     }
     
-}
+} */
 
 @media(min-width: 1024px) {
 
@@ -95,5 +96,30 @@
 @media(min-width: 2000px) {
     .about-content {
         margin: 0 auto;
+    }
+}
+
+.about-anim {
+    opacity: 0;
+}
+
+
+.about-animation1 {
+    animation: aboutAnimation 2s .25s forwards ease-out;
+}
+
+.about-animation2 {
+    animation: aboutAnimation 2s .5s forwards ease-out;
+}
+
+
+@keyframes aboutAnimation{
+    from {
+        /* transform: translateX(100px) */
+        opacity: 0;
+    }
+    to {
+        /* transform: translateX(0); */
+        opacity: 1;
     }
 }

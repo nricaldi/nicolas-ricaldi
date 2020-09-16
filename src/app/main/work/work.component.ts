@@ -14,8 +14,6 @@ export class WorkComponent implements OnInit {
 
     // const projects = document.querySelector('.anim');
     const projects = document.querySelectorAll('.anim');
-
-
     const observer = new IntersectionObserver((entries) => {
 
       let i = 1;
@@ -27,12 +25,13 @@ export class WorkComponent implements OnInit {
         }
         else {
           entry.target.classList.remove('animation'+i);
+          if(i = 4) 
+            i=1;
+          // i = 1;
         }
       })
 
-      i = 1;
-      
-      
+      // i = 1;
     }) 
 
     projects.forEach(project => {
