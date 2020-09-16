@@ -13,8 +13,6 @@ export class AboutComponent implements OnInit {
     const aboutSubs = document.querySelectorAll('.about-anim');
 
     const observer = new IntersectionObserver((entries) => {
-
-      console.log(aboutSubs);
     
 
       let i = 1;

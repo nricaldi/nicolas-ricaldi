@@ -24,9 +24,9 @@ export class WorkComponent implements OnInit {
           i++;
         }
         else {
-          entry.target.classList.remove('animation'+i);
-          if(i = 4) 
-            i=1;
+          // entry.target.classList.remove('animation'+i);
+          // if(i = 4) 
+          //   i=1;
           // i = 1;
         }
       })
