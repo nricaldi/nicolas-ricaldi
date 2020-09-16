@@ -36,15 +36,28 @@
 .hero h1 {
     font-size: 20px;
 }
+
 .hero h2 {
     font-size: 18px;
 }
+
 .hero h3 {
     font-size: 14px;
     margin-top: .5rem;
     margin-bottom: 1rem;
     color: var(--dark-gray);
 }
+
+.hero span {
+    color: var(--red);
+}
+/* 
+button {
+    max-width: 100px;
+    padding: 10px 15px;
+    font-size: 14px;
+} */
+
 .hero .button-red {
     margin-right: .5rem;
 }
@@ -70,10 +83,10 @@
 @media(min-width: 375px) {
 
     .hero h1 {
-        font-size: 30px;
+        font-size: 24px;
     }
     .hero h2 {
-        font-size: 26px;
+        font-size: 20px;
     }
     .hero h3 {
         font-size: 1rem;

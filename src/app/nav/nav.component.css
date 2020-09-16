@@ -50,6 +50,7 @@ ul li a {
 }
 
 .not-active {
+    opacity: 0;
     display: none;
 }
 
