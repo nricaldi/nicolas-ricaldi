@@ -103,6 +103,7 @@ ul li a {
         height: auto;
         flex-direction: row;
         transition: none;
+        opacity: 1;
     }
     
     ul li {
@@ -121,7 +122,7 @@ ul li a {
         color: var(--dark-gray);
         font-weight: 400;
         font-size: 1rem;    
-        transition: color 250ms ease-in-out
+        transition: color 250ms ease-in-out;
     }
 
     ul li a:hover,
