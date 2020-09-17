@@ -18,26 +18,11 @@ export class ContactComponent implements OnInit {
   
   public contactForm: FormGroup;
 
-  // public contactForm: FormGroup = new FormGroup({
-  //   name : new FormControl,
-  //   email : new FormControl,
-  //   message : new FormControl
-  // })
-
-
   constructor(private fb: FormBuilder) { }
  
   ngOnInit(): void {
     this.initializeForm();
   }
-
-  // initializeForm(): void {
-  //   this.contactForm = this.fb.group({
-  //     name: '',
-  //     email: '',
-  //     message: ''
-  //   });
-  // }
 
   initializeForm(): void {
     this.contactForm = this.fb.group({
@@ -54,36 +39,15 @@ export class ContactComponent implements OnInit {
 
 
   onSubmit(): void {
-    console.log(this.contactForm);
-
     
+    if(this.contactForm.valid) {
+      console.log(this.contactForm);
+      console.log(this.contactForm.value);
+
+      this.contactForm.reset();
+
+    }
   }
 
-  
-
-  // send() {
-  //   console.log(this.contactForm.value.name);
-  //   console.log(this.contactForm.value.email);
-  //   console.log(this.contactForm.value.message);
-    
-    
-  // }
-
-  /* *************************
-
-    form validations 
-    form = not blank
-    name = min length 1
-    email = valid email
-    message = min length 10
-
-    disable button when not valid
-
-  ************************* */
-
-
-  validateForm() {
-
-  }
 }
  

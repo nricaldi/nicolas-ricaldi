@@ -72,6 +72,11 @@
     margin-bottom: .5rem;
 }
 
+.info p a {
+    color: var(--gray);
+    text-decoration: none;
+}
+
 .right .info:last-child {
     margin: 0;
 }

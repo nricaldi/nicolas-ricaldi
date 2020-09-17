@@ -18,7 +18,7 @@ export class ProjectComponent implements OnInit {
   ngOnInit(): void {
 
     const destination = document.getElementById('proj');
-    if (destination) destination.scrollIntoView(true);
+    destination.scrollIntoView({block: 'start' }) 
     
 
     this._route.params.subscribe((params: Params) =>{
