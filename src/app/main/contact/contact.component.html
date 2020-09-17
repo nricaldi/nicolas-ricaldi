@@ -8,26 +8,45 @@
 
         <div class="flex-area">
 
-            <form action="" method="POST" class="contact-form">
+
+
+
+
+
+
+            
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" method="POST" class="contact-form">
         
                 <div>
                     <label for="name">name</label>
-                    <input type="text">
+                    <input type="text" formControlName="name">
+                    <span *ngIf="contactForm.get('name').dirty && contactForm.get('name').hasError('required')" class="form-error">Name is required</span>
                 </div>
         
                 <div>
-                    <label for="email">e-mail</label>
-                    <input type="email">
+                    <label for="email">email</label>
+                    <input type="email" formControlName="email">
+                    <span *ngIf="contactForm.get('email').dirty && contactForm.get('email').hasError('required')" class="form-error">Email is required</span>
+                    <span *ngIf="contactForm.get('email').touched && contactForm.get('email').hasError('email')" class="form-error">Enter valid email address</span>
+                    <span *ngIf="contactForm.get('email').touched && contactForm.get('email').hasError('minlength')" class="form-error">Email must be at least 5 characters</span>
                 </div>
-        
+                
                 <div>
                     <label for="message">message</label>
-                    <textarea name="message" cols="30" rows="6"></textarea>
+                    <textarea name="message" cols="30" rows="10" formControlName="message"></textarea>
+                    <span *ngIf="contactForm.get('message').dirty && contactForm.get('message').hasError('required')" class="form-error">Message is required</span>
+                    <span *ngIf="contactForm.get('message').touched && contactForm.get('message').hasError('minlength')" class="form-error">Message must be at least 10 characters</span>
                 </div>
 
-                <button class="button-red">Send</button>
+                <button class="button-red" [disabled]="!contactForm.valid">Send</button>
             </form>
-            
+             
+
+
+
+
+
+
             <div class="my-info">
                 <div class="left">
                     <div class="info">

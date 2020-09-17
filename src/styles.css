@@ -175,7 +175,7 @@ button {
     -webkit-border-radius: 16px;
 } */
 
-
+/* 
 textarea::-webkit-scrollbar {
     width: 5px;
     height: 10px;
@@ -197,4 +197,4 @@ textarea::-webkit-scrollbar {
     border-radius: 5px;
     -webkit-border-radius: 5px;
 
-}
+} */
