@@ -55,6 +55,8 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.contactForm);
+
+    
   }
 
   

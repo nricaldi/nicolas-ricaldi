@@ -16,6 +16,11 @@ export class ProjectComponent implements OnInit {
   constructor(private apiService: ApiService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    const destination = document.getElementById('proj');
+    if (destination) destination.scrollIntoView(true);
+    
+
     this._route.params.subscribe((params: Params) =>{
       console.log(params['id']);
 

@@ -1,7 +1,7 @@
 .main {
     position: relative;
     height: 65vh;
-    height: 100vh;
+    /* height: 100vh; */
     /* max-height: 1200px; */
     /* max-width: 1750px; */
     max-width: 2000px;
@@ -117,6 +117,7 @@ button {
 @media(min-width: 768px) {
     .main {
         height: 80vh;
+        /* height: 100vh; */
         padding: 0 4rem;
     }
     
