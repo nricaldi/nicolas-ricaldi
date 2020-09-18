@@ -1,11 +1,8 @@
 #about {
     background: var(--dark-bg);
-    /* display: flex; */
 } 
 
 .about-content {
-    /* padding: 4rem 2rem; */
-    /* max-width: 1750px; */
     max-width: 2000px;
 } 
 
@@ -17,7 +14,6 @@
     color: var(--dark-gray);
     line-height: 28px;
     font-size: 14px;
-    /* opacity: 0; */
 }
 
 .who {
@@ -42,15 +38,6 @@
     }
 }
 
-
-/* @media(min-width: 768px) {
-
-    .about-content {
-        padding: 5rem 4rem;
-    }
-    
-} */
-
 @media(min-width: 1024px) {
 
     #about {
@@ -60,9 +47,7 @@
     }
 
     .about-content {
-        /* height: 500px; */
         width: 100%;
-        /* padding: 5rem 6rem; */
     }
     .about-info {   
         display: flex;
@@ -115,11 +100,9 @@
 
 @keyframes aboutAnimation{
     from {
-        /* transform: translateX(100px) */
         opacity: 0;
     }
     to {
-        /* transform: translateX(0); */
         opacity: 1;
     }
 }
