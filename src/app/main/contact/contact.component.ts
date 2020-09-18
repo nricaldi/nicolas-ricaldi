@@ -4,6 +4,10 @@ import { faGithub} from '@fortawesome/free-brands-svg-icons';
 import { faDribbble} from '@fortawesome/free-brands-svg-icons';
 
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
+
+// import { ApiService } from '../../api.service';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-contact',
@@ -18,10 +22,18 @@ export class ContactComponent implements OnInit {
   
   public contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private apiService: ApiService, private recaptchaV3Service: ReCaptchaV3Service,) { }
+  // constructor(private fb: FormBuilder) { }
  
   ngOnInit(): void {
     this.initializeForm();
+  }
+
+  public executeImportantAction(): void {
+    this.recaptchaV3Service.execute('importantAction')
+      .subscribe((token) => console.log(token));
+      // .subscribe((token) => this.handleToken(token));
+
   }
 
   initializeForm(): void {
@@ -43,6 +55,14 @@ export class ContactComponent implements OnInit {
     if(this.contactForm.valid) {
       console.log(this.contactForm);
       console.log(this.contactForm.value);
+
+      this.apiService.sendMail(this.contactForm.value);
+
+      let observable = this.apiService.sendMail(this.contactForm.value);
+      observable.subscribe( 
+        res => console.log(res),
+        err => console.log(err),
+      );
 
       this.contactForm.reset();
 

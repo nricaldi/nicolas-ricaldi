@@ -441,7 +441,7 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nicolasricaldi/nicolas-ricaldi/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /Users/nicolasricaldi/angular/nicolas-ricaldi/src/styles.css */"./src/styles.css");
 
 
 /***/ })

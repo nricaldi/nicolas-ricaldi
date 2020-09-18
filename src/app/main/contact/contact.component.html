@@ -38,7 +38,7 @@
                     <span *ngIf="contactForm.get('message').touched && contactForm.get('message').hasError('minlength')" class="form-error">Message must be at least 10 characters</span>
                 </div>
 
-                <button class="button-red" [disabled]="!contactForm.valid">Send</button>
+                <button class="button-red" (click)="executeImportantAction()" [disabled]="!contactForm.valid">Send</button>
             </form>
              
 

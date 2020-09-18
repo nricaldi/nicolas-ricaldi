@@ -466,7 +466,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! /Users/nicolasricaldi/nicolas-ricaldi/src/styles.css */
+      /*! /Users/nicolasricaldi/angular/nicolas-ricaldi/src/styles.css */
       "./src/styles.css");
       /***/
     }

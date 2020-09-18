@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Email } from './models/Email';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -58,11 +60,26 @@ export class ApiService {
 
   ]
 
+  baseUrl = 'http://127.0.0.1:8000/';
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
   getProject(_id: number){
     const proj = this.projects[_id-1];
     return proj;
   }
+
+  sendMail(email: Email) : Observable<any>{
+    console.log('hello from service');
+    return this._http.post(`${this.baseUrl}send`, email);
+  }
+
+  // sendMail(email: Email){
+  //   console.log('hello from service');
+  //   console.log(email)
+  //   // return this._http.post(`${this.baseUrl}send`, email);
+  // }
+
+
 }
+ 

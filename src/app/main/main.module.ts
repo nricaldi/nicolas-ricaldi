@@ -9,9 +9,11 @@ import { WorkComponent } from './work/work.component';
 import { ContactComponent } from './contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from '../app-routing.module';
 
+import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -19,15 +21,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     WorkComponent,
     ContactComponent,
-    HeroComponent
+    HeroComponent,
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaV3Module
+  ],
+  providers: [
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LdCqc0ZAAAAAHnStTNmPB7ea7Wvh-qgmq0xdM-q' },
   ]
+
 })
 export class MainModule { }
  
