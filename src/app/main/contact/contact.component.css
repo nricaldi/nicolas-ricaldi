@@ -275,6 +275,7 @@ form div {
 
 .success-msg {
     display: none;
+    /* display: inline-block; */
     background: #52a541;
     padding: 1em 2em;
     border-radius: 5px;
