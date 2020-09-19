@@ -69,10 +69,11 @@ export class ApiService {
     return proj;
   }
 
-  sendMail(email: Email) : Observable<any>{
-    console.log('hello from service');
-    return this._http.post(`${this.baseUrl}send`, email);
+  sendMail(email: Email, token: string) : Observable<any>{
+    return this._http.post(`${this.baseUrl}send/${token}`, email);
   }
+
+
 
   // sendMail(email: Email){
   //   console.log('hello from service');
