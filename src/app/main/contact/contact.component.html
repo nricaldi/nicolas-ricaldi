@@ -17,6 +17,12 @@
                     <input type="text" formControlName="name">
                     <span *ngIf="contactForm.get('name').dirty && contactForm.get('name').hasError('required')" class="form-error">Name is required</span>
                 </div>
+
+                <div>
+                    <label for="subject">subject</label>
+                    <input type="text" formControlName="subject">
+                    <span *ngIf="contactForm.get('subject').dirty && contactForm.get('subject').hasError('required')" class="form-error">Subject is required</span>
+                </div>
         
                 <div>
                     <label for="email">email</label>

@@ -36,6 +36,8 @@ export class ContactComponent implements OnInit {
   public initializeForm(): void {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
+
+      subject: ['', Validators.required],
       
       email: ['', [ Validators.minLength(5), 
                     Validators.required, 
@@ -49,6 +51,7 @@ export class ContactComponent implements OnInit {
   public onSubmit(): void {
 
     if(this.contactForm.valid) {
+
       this.recaptchaV3Service.execute('importantAction')
         .subscribe((token) => {
           this.setToken(token);
@@ -74,7 +77,7 @@ export class ContactComponent implements OnInit {
 
   private showSuccess(): void {
     const msg = document.querySelector('.success-msg');
-    console.log(msg);
+    // console.log(msg);
 
     msg.classList.add('show');
     setTimeout(function(){ msg.classList.remove('show'); }, 3000);

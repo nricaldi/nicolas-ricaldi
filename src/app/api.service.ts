@@ -60,7 +60,12 @@ export class ApiService {
 
   ]
 
-  baseUrl = 'http://127.0.0.1:8000/';
+  // baseUrl = 'http://127.0.0.1:8000/';
+  baseUrl = 'https://nm-email-api.herokuapp.com/';
+  
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+  });
 
   constructor(private _http: HttpClient) { }
 
@@ -70,7 +75,7 @@ export class ApiService {
   }
 
   sendMail(email: Email, token: string) : Observable<any>{
-    return this._http.post(`${this.baseUrl}send/${token}`, email);
+    return this._http.post(`${this.baseUrl}send/${token}`, email, {headers: this.headers});
   }
 
 
