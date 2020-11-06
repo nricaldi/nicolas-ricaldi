@@ -44,13 +44,16 @@ export class ApiService {
     },
 
     {
-      'title': 'OSA',
-      'description':"Designed the site for a local martial arts school. Used responsive design",
-      'img': '../../assets/img/osa.png',
-      'frontEnd': ['HTML', 'CSS', 'JavaScript', 'JQUERY'],
-      'backEnd': ['None'],
-      'deployment': ['Github pages'],
-      'demoLink': 'https://nricaldi.github.io/osa/',
+      // 'title': 'OSA',
+      // 'description':"Designed the site for a local martial arts school. Used responsive design",
+      // 'img': '../../assets/img/osa.png',
+      'title': 'BT Real Estate',
+      'description':"Built a web application a real estate web application using Django. Any user can search and browse listings. Any user can send a contact inquiry, the contact inquiry will be saved on the database and will email the realtor associtated with it. Logged in users can view a dashboard to view a list of their contact inquiries. The application uses the Django admin area to manage resources including property listings, realtors and contact inquiries.",
+      'img': '../../assets/img/btre.png',
+      'frontEnd': ['HTML', 'CSS', 'JavaScript', 'Bootsrap'],
+      'backEnd': ['Python', 'Django'],
+      'deployment': ['Gunicorn, Nginx, Ubuntu 18.04'],
+      'demoLink': 'http://68.183.96.63/',
       'codeLink': 'https://github.com/nricaldi/osa'
     },
 
