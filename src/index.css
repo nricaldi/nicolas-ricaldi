@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --bg: #0a0a0c;
+  --bg-deep: #050506;
+  --dot-size: 2px;
+  --dot-gap: 8px;
+  --cursor-x: 50vw;
+  --cursor-y: 40vh;
+  --panel: rgba(16, 16, 19, 0.84);
+  --panel-strong: rgba(20, 20, 24, 0.95);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --panel-border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f4f3f6;
+  --muted: rgba(244, 243, 246, 0.68);
+  --faint: rgba(244, 243, 246, 0.45);
+  --accent: #ef2b2d;
+  --accent-soft: rgba(239, 43, 45, 0.22);
+  --glow: rgba(239, 43, 45, 0.35);
+  --success: #8cf88a;
+  --mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.05), transparent 60%),
+    linear-gradient(160deg, var(--bg-deep), var(--bg));
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.12) 0 calc(var(--dot-size) / 2),
+    transparent calc(var(--dot-size) / 2 + 0.6px)
+  );
+  background-size: var(--dot-gap) var(--dot-gap);
+  background-position: 0 0;
+  opacity: 0.35;
+}
+
+body::after {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  opacity: 0.12;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: rgba(239, 43, 45, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

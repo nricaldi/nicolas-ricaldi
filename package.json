@@ -1,54 +1,24 @@
 {
   "name": "nicolas-ricaldi",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "@angular/animations": "~10.0.9",
-    "@angular/common": "~10.0.9",
-    "@angular/compiler": "~10.0.9",
-    "@angular/core": "~10.0.9",
-    "@angular/forms": "~10.0.9",
-    "@angular/platform-browser": "~10.0.9",
-    "@angular/platform-browser-dynamic": "~10.0.9",
-    "@angular/router": "~10.0.9",
-    "@fortawesome/angular-fontawesome": "^0.7.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.13.0",
-    "@fortawesome/free-regular-svg-icons": "^5.13.0",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "ng-recaptcha": "^6.0.2",
-    "normalize.css": "^8.0.1",
-    "rxjs": "~6.5.5",
-    "tslib": "^2.0.0",
-    "web-animations-js": "^2.3.2",
-    "zone.js": "~0.10.3"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.182.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1000.6",
-    "@angular/cli": "~10.0.6",
-    "@angular/compiler-cli": "~10.0.9",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^6.0.0",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~5.0.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~3.3.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~3.9.5"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.182.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.6.2",
+    "vite": "^7.3.1"
   }
 }
