@@ -108,6 +108,12 @@
 .heroContainer {
   position: relative;
   z-index: 1;
+  pointer-events: none;
+}
+
+.heroContainer a,
+.heroContainer button {
+  pointer-events: auto;
 }
 
 .heroRole {
