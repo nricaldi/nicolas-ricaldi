@@ -88,6 +88,28 @@
   color: var(--faint);
 }
 
+.hero {
+  display: grid;
+  height: 80vh;
+  padding-top: 24px;
+  place-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.heroDitherWrapper {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  right: 0;
+  top: 0;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+}
+
 .heroRole {
   font-size: 18px;
 }

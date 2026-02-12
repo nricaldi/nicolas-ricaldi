@@ -1,4 +1,5 @@
 import styles from "./App.module.css";
+import Dither from './components/dither.tsx';
 import { site, toolbox, workItems, statusLines, socials } from "./content";
 
 const GithubIcon = () => (
@@ -41,14 +42,27 @@ export default function App() {
         </header>
       </div>
 
-      <section className={styles.heroSection}>
-        <div className={styles.heroInner}>
-          <div className={styles.heroStack}>
-            <div className={styles.heroRole}>{site.role}</div>
-            <h1 className={`${styles.heroTitle} ${styles.glitch}`}>{site.headline}</h1>
-          </div>
+      <section className={styles.hero}>
+
+        <div className={styles.heroDitherWrapper}>
+          <Dither
+            waveColor={[0.5,0.5,0.5]}
+            disableAnimation={false}
+            enableMouseInteraction
+            mouseRadius={0.1}
+            colorNum={4}
+            waveAmplitude={0.3}
+            waveFrequency={3}
+            waveSpeed={0.05}
+          />
+        </div>
+
+        <div className={`${styles.container} ${styles.heroContainer}`}>
+          <div className={styles.heroRole}>{site.role}</div>
+          <h1 className={`${styles.heroTitle} ${styles.glitch}`}>{site.headline}</h1>
           <p className={styles.heroValue}>{site.value}</p>
           <p className={styles.heroValue}>{site.valueSecondary}</p>
+
           <div className={styles.ctaRow}>
             <a className={styles.buttonPrimary} href={site.resumeUrl} download>
               Download Resume
@@ -57,6 +71,7 @@ export default function App() {
               Contact
             </a>
           </div>
+
         </div>
       </section>
 
