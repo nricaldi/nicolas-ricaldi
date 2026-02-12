@@ -70,6 +70,16 @@ export default function App() {
             <a className={styles.buttonGhost} href="#contact">
               Contact
             </a>
+
+
+            <h2 className={styles.heroFirstName}>
+              Nico
+            </h2>
+            <h2 className={styles.heroLastName}>
+              Ricaldi
+            </h2>
+
+
           </div>
 
         </div>

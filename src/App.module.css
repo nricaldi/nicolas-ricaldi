@@ -98,11 +98,29 @@
 }
 
 .heroDitherWrapper {
+  border-radius: 50%;
   position: absolute;
-  height: 100%;
-  width: 50%;
-  right: 0;
-  top: 0;
+  height: 200px;
+  width: 200px;
+  right: 25%;
+  top: 20%;
+  opacity: 0.75;
+  overflow: hidden;
+}
+
+.heroDitherWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at 70% 40%,
+      rgba(10, 10, 12, 0) 0%,
+      rgba(10, 10, 12, 0.25) 45%,
+      rgba(10, 10, 12, 0.6) 70%,
+      rgba(10, 10, 12, 0.9) 100%
+    ),
+    linear-gradient(90deg, rgba(10, 10, 12, 0.85) 0%, rgba(10, 10, 12, 0) 35%);
 }
 
 .heroContainer {
@@ -184,6 +202,25 @@
 .textarea:focus-visible {
   outline: 2px solid rgba(239, 43, 45, 0.7);
   outline-offset: 2px;
+}
+
+.heroFirstName,
+.heroLastName {
+  position: absolute;
+  font-size: 192px;
+  color: var(--panel-border);
+  mix-blend-mode: difference; /* Apply the blend mode */
+  z-index: 2;
+}
+
+.heroFirstName {
+  top: -60%;
+  left: -10%;
+}
+
+.heroLastName {
+  bottom: -60%;
+  left: 50%;
 }
 
 .sectionTitle {
