@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import styles from "./App.module.css";
 import { site, toolbox, workItems, statusLines, socials } from "./content";
-import ASCIIText from "./components/ascii-text";
 
 const GithubIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -31,25 +29,6 @@ const MailIcon = () => (
 );
 
 export default function App() {
-
-  useEffect(() => {
-    let frame = 0;
-    const handleMove = (event: MouseEvent) => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
-        document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
-        frame = 0;
-      });
-    };
-
-    window.addEventListener("mousemove", handleMove, { passive: true });
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
   return (
     <div className={styles.app}>
       <div className={styles.cursorField} aria-hidden="true" />
@@ -59,27 +38,11 @@ export default function App() {
             <span className={styles.brandDot} />
             NR // PORTFOLIO
           </div>
-        </header>8
+        </header>
       </div>
 
       <section className={styles.heroSection}>
         <div className={styles.heroInner}>
-
-          <div className={styles.heroDotNameTop} aria-hidden="true"/>
-          <div className={styles.heroDotNameBottom} aria-hidden="true"/>
-
-          <ASCIIText
-            enableWaves={false}
-            asciiFontSize={8}
-            text="Nico"
-          />
-
-          <ASCIIText
-            enableWaves={false}
-            asciiFontSize={8}
-            text="Ricaldi"
-          />
-
           <div className={styles.heroStack}>
             <div className={styles.heroRole}>{site.role}</div>
             <h1 className={`${styles.heroTitle} ${styles.glitch}`}>{site.headline}</h1>
@@ -115,7 +78,6 @@ export default function App() {
             </div>
           </section>
 
-          impor
           <section className={`${styles.card} ${styles.status}`}>
             <div className={styles.monoLabel}>Status</div>
             <div className={styles.sectionTitle}>Status console</div>

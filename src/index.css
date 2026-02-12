@@ -50,28 +50,6 @@ body::after {
   z-index: 0;
 }
 
-body::before {
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.12) 0 calc(var(--dot-size) / 2),
-    transparent calc(var(--dot-size) / 2 + 0.6px)
-  );
-  background-size: var(--dot-gap) var(--dot-gap);
-  background-position: 0 0;
-  opacity: 0.35;
-}
-
-body::after {
-  background: repeating-linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.03),
-    rgba(255, 255, 255, 0.03) 1px,
-    transparent 1px,
-    transparent 5px
-  );
-  opacity: 0.12;
-}
-
 a {
   color: inherit;
   text-decoration: none;

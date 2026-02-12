@@ -408,37 +408,6 @@
     min-height: 60vh;
     padding: 24px 0 32px;
   }
-
-  .heroDotNameTop {
-    top: 6%;
-    left: 2%;
-    height: 160px;
-    opacity: 0.2;
-  }
-
-  .heroDotNameBottom {
-    bottom: 8%;
-    right: 2%;
-    height: 170px;
-    opacity: 0.18;
-  }
-}
-
-.cursorField {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(239, 43, 45, 0.45) 0 calc(var(--dot-size) / 2),
-    transparent calc(var(--dot-size) / 2 + 0.6px)
-  );
-  background-size: var(--dot-gap) var(--dot-gap);
-  opacity: 0.5;
-  mix-blend-mode: screen;
-  -webkit-mask-image: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(0, 0, 0, 0.9) 0 110px, transparent 220px);
-  mask-image: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(0, 0, 0, 0.9) 0 110px, transparent 220px);
 }
 
 .heroSection {
@@ -464,41 +433,4 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-}
-
-.heroDotNameTop,
-.heroDotNameBottom {
-  position: absolute;
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.5) 0 calc(var(--dot-size) / 2),
-    transparent calc(var(--dot-size) / 2 + 0.6px)
-  );
-  background-size: var(--dot-gap) var(--dot-gap);
-  background-position: 0 0;
-  background-attachment: fixed;
-  opacity: 0.75;
-  mix-blend-mode: screen;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
-.heroDotNameTop {
-  left: -10%;
-  top: -70%;
-  width: min(900px, 80vw);
-  height: 240px;
-  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300'><text x='0' y='235' font-family='Space Grotesk, sans-serif' font-size='230' font-weight='700' fill='white'>Nico</text></svg>");
-  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300'><text x='0' y='235' font-family='Space Grotesk, sans-serif' font-size='230' font-weight='700' fill='white'>Nico</text></svg>");
-}
-
-.heroDotNameBottom {
-  right: -30%;
-  bottom: -80%;
-  width: min(960px, 88vw);
-  height: 260px;
-  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 320'><text x='0' y='250' font-family='Space Grotesk, sans-serif' font-size='240' font-weight='700' fill='white'>Ricaldi</text></svg>");
-  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 320'><text x='0' y='250' font-family='Space Grotesk, sans-serif' font-size='240' font-weight='700' fill='white'>Ricaldi</text></svg>");
 }
