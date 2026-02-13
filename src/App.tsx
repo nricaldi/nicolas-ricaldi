@@ -46,9 +46,9 @@ export default function App() {
 
         <DitherPlanet
           position="absolute"
-          top="20%"
+          top="5%"
           left="70%"
-          size={200}
+          size={500}
           waveColor={[0.5, 0.5, 0.5]}
           disableAnimation={false}
           enableMouseInteraction
@@ -64,14 +64,14 @@ export default function App() {
           top="50%"
           left="65%"
           size={200}
-          waveColor={[0.8, 0.5, 0.9]}
+          waveColor={[0.8, 0.3, 0.3]}
           disableAnimation={false}
           enableMouseInteraction
           mouseRadius={0.5}
           colorNum={4}
           waveAmplitude={0.3}
           waveFrequency={3}
-          waveSpeed={0.05}
+          waveSpeed={0.1}
         />
 
         <div className={`${styles.container} ${styles.heroContainer}`}>
