@@ -1,5 +1,5 @@
 import styles from "./App.module.css";
-import Dither from './components/dither.tsx';
+import DitherPlanet from "./components/DitherPlanet";
 import { site, toolbox, workItems, statusLines, socials } from "./content";
 
 const GithubIcon = () => (
@@ -44,18 +44,35 @@ export default function App() {
 
       <section className={styles.hero}>
 
-        <div className={styles.heroDitherWrapper}>
-          <Dither
-            waveColor={[0.5,0.5,0.5]}
-            disableAnimation={false}
-            enableMouseInteraction
-            mouseRadius={0.1}
-            colorNum={4}
-            waveAmplitude={0.3}
-            waveFrequency={3}
-            waveSpeed={0.05}
-          />
-        </div>
+        <DitherPlanet
+          position="absolute"
+          top="20%"
+          left="70%"
+          size={200}
+          waveColor={[0.5, 0.5, 0.5]}
+          disableAnimation={false}
+          enableMouseInteraction
+          mouseRadius={0.5}
+          colorNum={4}
+          waveAmplitude={0.3}
+          waveFrequency={3}
+          waveSpeed={0.05}
+        />
+
+        <DitherPlanet
+          position="absolute"
+          top="50%"
+          left="65%"
+          size={200}
+          waveColor={[0.8, 0.5, 0.9]}
+          disableAnimation={false}
+          enableMouseInteraction
+          mouseRadius={0.5}
+          colorNum={4}
+          waveAmplitude={0.3}
+          waveFrequency={3}
+          waveSpeed={0.05}
+        />
 
         <div className={`${styles.container} ${styles.heroContainer}`}>
           <div className={styles.heroRole}>{site.role}</div>
