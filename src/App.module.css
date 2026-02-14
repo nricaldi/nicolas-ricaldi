@@ -41,8 +41,8 @@
   width: 4px;
   height: 16px;
   border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--glow);
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary-soft-3);
 }
 
 .grid {
@@ -54,9 +54,9 @@
   position: relative;
   padding: 22px 24px;
   border-radius: 20px;
-  border: 1px solid var(--panel-border);
-  background: var(--panel);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-muted);
+  background: var(--surface);
+  box-shadow: var(--shadow-m);
   backdrop-filter: blur(18px);
   overflow: hidden;
   transition: border 0.2s ease, box-shadow 0.2s ease;
@@ -66,15 +66,15 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(239, 43, 45, 0.08), transparent 45%);
+  background: linear-gradient(120deg, var(--primary-soft), transparent 45%);
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
 }
 
 .card:hover {
-  border-color: var(--panel-border-strong);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(239, 43, 45, 0.2);
+  border-color: var(--border);
+  box-shadow: var(--shadow-l), 0 0 25px var(--primary-soft-2);
 }
 
 .card:hover::before {
@@ -142,7 +142,7 @@
 .iconButton:focus-visible,
 .input:focus-visible,
 .textarea:focus-visible {
-  outline: 2px solid rgba(239, 43, 45, 0.7);
+  outline: 2px solid var(--primary-soft-5);
   outline-offset: 2px;
 }
 
@@ -150,7 +150,7 @@
 .heroLastName {
   position: absolute;
   font-size: 220px;
-  color: rgba(255, 255, 255, 0.1);
+  color: var(--text-faint);
   z-index: 0;
   filter: blur(0.3px);
   pointer-events: none;
@@ -184,14 +184,14 @@
   font-size: 12px;
   padding: 6px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-muted);
   color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-soft);
 }
 
 .statusBox {
-  background: rgba(7, 7, 9, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface-elev-1);
+  border: 1px solid var(--border-muted);
   border-radius: 14px;
   padding: 14px 16px;
   display: grid;
@@ -206,7 +206,7 @@
 }
 
 .statusAccent {
-  color: var(--success);
+  color: var(--primary-light);
 }
 
 .workGrid {
@@ -219,15 +219,15 @@
   gap: 8px;
   padding: 12px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-muted);
+  background: var(--surface-soft-3);
 }
 
 .workThumb {
   height: 90px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent);
-  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, var(--border-muted), transparent);
+  border: 1px dashed var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,9 +249,9 @@
   text-transform: uppercase;
   padding: 4px 8px;
   border-radius: 999px;
-  border: 1px solid rgba(239, 43, 45, 0.35);
-  color: rgba(239, 43, 45, 0.9);
-  background: rgba(239, 43, 45, 0.1);
+  border: 1px solid var(--primary-soft-3);
+  color: var(--primary);
+  background: var(--primary-soft-6);
 }
 
 .contactGrid {
@@ -270,19 +270,19 @@
   width: 38px;
   height: 38px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface-soft-2);
   transition: all 0.2s ease;
 }
 
 .iconButton:hover,
 .iconButton:focus-visible {
-  border-color: var(--accent);
-  box-shadow: 0 0 18px rgba(239, 43, 45, 0.3);
+  border-color: var(--primary);
+  box-shadow: 0 0 18px var(--primary-soft-2);
 }
 
 .form {
@@ -292,8 +292,8 @@
 
 .input,
 .textarea {
-  background: rgba(7, 7, 9, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-elev-2);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 12px;
   color: var(--text);
@@ -335,7 +335,7 @@
 }
 
 .terminalAccent {
-  color: var(--success);
+  color: var(--primary-light);
 }
 
 .cursor {
@@ -343,17 +343,17 @@
   width: 9px;
   height: 16px;
   margin-left: 6px;
-  background: var(--accent);
+  background: var(--primary);
   animation: blink 1.2s steps(1) infinite;
 }
 
 .glitch:hover {
-  text-shadow: 0 0 6px rgba(239, 43, 45, 0.6), 0 0 16px rgba(239, 43, 45, 0.4);
+  text-shadow: 0 0 6px var(--primary-soft-4), 0 0 16px var(--primary-soft-3);
 }
 
 .divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--border-muted);
   margin: 14px 0;
 }
 
