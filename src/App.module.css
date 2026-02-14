@@ -23,6 +23,7 @@
 
 .sectionContainer {
   padding-top: 24px;
+  position: relative;
 }
 
 .brand {
@@ -110,19 +111,24 @@
 }
 
 .heroRole {
-  font-size: 18px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
 .heroTitle {
-  font-size: clamp(32px, 4vw, 6rem);
+  font-size: clamp(36px, 4vw, 5.4rem);
   font-weight: 600;
-  max-width: 80%;
+  max-width: 62%;
+  line-height: 1.08;
 }
 
 .heroValue {
-  margin-top: 12px;
+  margin-top: 10px;
   color: var(--muted);
-  max-width: 480px;
+  max-width: 440px;
+  font-size: 15px;
 }
 
 .ctaRow {
@@ -182,20 +188,21 @@
 .heroFirstName,
 .heroLastName {
   position: absolute;
-  font-size: 192px;
-  color: var(--panel-border);
-  mix-blend-mode: difference; /* Apply the blend mode */
-  z-index: 2;
+  font-size: 220px;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+  filter: blur(0.3px);
+  pointer-events: none;
 }
 
 .heroFirstName {
-  top: -60%;
-  left: -10%;
+  top: -5%;
+  left: -6%;
 }
 
 .heroLastName {
-  bottom: -60%;
-  left: 50%;
+  bottom: -20%;
+  right: -6%;
 }
 
 .sectionTitle {
@@ -447,6 +454,30 @@
   .heroSection {
     min-height: 60vh;
     padding: 24px 0 32px;
+  }
+
+  .heroTitle {
+    max-width: 100%;
+    font-size: clamp(32px, 8vw, 3rem);
+  }
+
+  .heroValue {
+    max-width: 100%;
+  }
+
+  .heroFirstName,
+  .heroLastName {
+    font-size: 140px;
+  }
+
+  .heroFirstName {
+    top: -25%;
+    left: -4%;
+  }
+
+  .heroLastName {
+    bottom: -35%;
+    right: -4%;
   }
 }
 

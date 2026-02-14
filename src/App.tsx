@@ -87,19 +87,15 @@ export default function App() {
             <a className={styles.buttonGhost} href="#contact">
               Contact
             </a>
-
-
-            <h2 className={styles.heroFirstName}>
-              Nico
-            </h2>
-            <h2 className={styles.heroLastName}>
-              Ricaldi
-            </h2>
-
-
           </div>
 
         </div>
+        <h2 className={styles.heroFirstName} aria-hidden="true">
+          Nico
+        </h2>
+        <h2 className={styles.heroLastName} aria-hidden="true">
+          Ricaldi
+        </h2>
       </section>
 
       <div className={`${styles.container} ${styles.sectionContainer}`}>
