@@ -58,7 +58,6 @@
 .heroLastName {
   position: absolute;
   font-size: 220px;
-  color: var(--text-faint);
   filter: blur(0.3px);
   pointer-events: none;
   z-index: -1;

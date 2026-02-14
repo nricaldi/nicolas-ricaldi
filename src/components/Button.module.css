@@ -1,41 +1,41 @@
 .button {
-  border-radius: 12px;
-  padding: 10px 16px;
-  border: 1px solid transparent;
+  align-items: center;
+  border-radius: 8px;
   cursor: pointer;
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s ease;
   font-weight: 500;
+  gap: 8px;
+  padding: 10px 16px;
+  transition: box-shadow 0.2s ease, border-radius 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  box-shadow: var(--glow-l);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .primary {
-  background: var(--primary);
+  background-color: var(--primary);
   color: var(--bg-dark);
-  box-shadow: 0 0 20px var(--primary-soft-8);
 }
 
 .primary:hover,
 .primary:focus-visible {
-  box-shadow: 0 0 30px var(--primary-soft-9);
-  transform: translateY(-1px);
-  text-shadow: 0 0 8px var(--primary-soft-10);
+  border-radius: 12px;
 }
 
 .ghost {
-  background: var(--surface-soft-2);
-  border-color: var(--border);
+  background-color: var(--bg);
   color: var(--text);
 }
 
 .ghost:hover,
 .ghost:focus-visible {
-  border-color: var(--primary);
+  border-radius: 12px;
   color: var(--text);
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--primary-soft-6);
-  outline-offset: 2px;
 }

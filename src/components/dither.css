@@ -7,7 +7,6 @@
 .dither-planet {
   border-radius: 50%;
   overflow: hidden;
-  opacity: 0.75;
   position: relative;
   box-shadow: var(--shadow-l);
 }

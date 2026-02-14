@@ -30,6 +30,12 @@ const MailIcon = () => (
   </svg>
 );
 
+
+const toggleMode = () => {
+  const body = document.body;
+  body.classList.toggle('light');
+}
+
 export default function App() {
   return (
     <div className={styles.app}>
@@ -40,6 +46,7 @@ export default function App() {
             <span className={styles.brandDot} />
             NR // PORTFOLIO
           </div>
+          <div onClick={toggleMode}>light</div>
         </header>
       </div>
 
