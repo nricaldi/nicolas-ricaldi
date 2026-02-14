@@ -1,6 +1,6 @@
 import styles from './App.module.css';
-import Button from './components/Button';
-import Hero from './components/Hero';
+import { Button } from './components/ui/Button';
+import { Hero } from './components/Hero';
 import { site, toolbox, workItems, statusLines, socials } from './content';
 import { IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
 

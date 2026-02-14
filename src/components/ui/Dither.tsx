@@ -302,7 +302,7 @@ interface DitherProps {
   mouseRadius?: number;
 }
 
-export default function Dither({
+export function Dither({
   waveSpeed = 0.05,
   waveFrequency = 3,
   waveAmplitude = 0.3,

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import Dither from './dither';
+import { Dither } from './Dither';
 import './dither.css';
 
 type PositionValue = 'relative' | 'absolute' | 'fixed' | 'sticky';
@@ -20,7 +20,7 @@ interface DitherPlanetProps {
   pixelSize?: number;
 }
 
-export default function DitherPlanet({
+export function DitherPlanet({
   position = 'relative',
   top,
   left,

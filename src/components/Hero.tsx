@@ -1,7 +1,7 @@
 import styles from './Hero.module.css';
-import DitherPlanet from './DitherPlanet';
-import Button from './Button';
-import ShinyText from './ShinyText';
+import { DitherPlanet } from './ui/DitherPlanet';
+import { Button } from './ui/Button';
+import { ShinyText } from './ui/ShinyText';
 
 type HeroProps = {
   site: {
@@ -13,7 +13,7 @@ type HeroProps = {
   };
 };
 
-export default function Hero({ site }: HeroProps) {
+export function Hero({ site }: HeroProps) {
   return (
     <section className={styles.hero}>
       <DitherPlanet

@@ -16,7 +16,7 @@ type AnchorProps = {
 
 type Props = ButtonProps | AnchorProps;
 
-export default function Button({ variant = 'primary', className, ...props }: Props) {
+export function Button({ variant = 'primary', className, ...props }: Props) {
   const classes = [styles.button, styles[variant], className].filter(Boolean).join(' ');
 
   if ('href' in props) {
