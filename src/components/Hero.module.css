@@ -53,28 +53,37 @@
 
 .heroFirstName,
 .heroLastName {
-  font-size: 220px;
+  font-size: 192px;
   filter: blur(0.3px);
+  margin-block: 5rem;
   z-index: 1;
+}
+
+.heroFirstName {
+  margin-left: -10%;
 }
 
 .heroLastNameContainer {
   text-align: right;
 }
 
+.heroLastName {
+  margin-right: -10%;
+}
+
 @media (max-width: 899px) {
   .heroTitle {
-    max-width: 100%;
     font-size: clamp(32px, 8vw, 3rem);
   }
 
   .heroValue {
-    max-width: 100%;
+    max-width: 60%;
   }
 
   .heroFirstName,
   .heroLastName {
-    font-size: 140px;
+    font-size: 100px;
     pointer-events: auto;
+    margin-block: 0;
   }
 }

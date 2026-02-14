@@ -53,7 +53,7 @@ export function Hero({ site }: HeroProps) {
           className={styles.heroFirstName}
           text="Nico"
           speed={3}
-          delay={10}
+          delay={4}
           color="var(--hero-name-color)"
           shineColor="var(--hero-name-color-highlight)"
           spread={120}
@@ -81,7 +81,7 @@ export function Hero({ site }: HeroProps) {
             className={styles.heroLastName}
             text="Ricaldi"
             speed={3}
-            delay={12}
+            delay={6}
             color="var(--hero-name-color)"
             shineColor="var(--hero-name-color-highlight)"
             spread={120}
