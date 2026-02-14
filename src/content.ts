@@ -1,10 +1,9 @@
 export const site = {
-  headline: "I build complex apps that people enjoy using",
+  headline: "I build modern products designed to feel simple.",
   name: "Nicolas Ricaldi",
   role: "Full Stack Software Developer",
-  value:
-    "UI/UX-minded full-stack engineer building polished dashboards, tools, and data-driven products.",
-  valueSecondary: "Performance + data + design, aligned with product outcomes.",
+  value: "Designing and engineering software where usability meets scale.",
+  valueSecondary: "Complex applications, designed to feel simple.",
   resumeUrl: "/resume.pdf",
   email: "nicoricaldi.dev@gmail.com",
   location: "Remote / Northern Virginia",

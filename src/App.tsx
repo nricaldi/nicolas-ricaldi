@@ -77,9 +77,8 @@ export default function App() {
 
         <div className={`${styles.container} ${styles.heroContainer}`}>
           <div className={styles.heroRole}>{site.role}</div>
-          <h1 className={`${styles.heroTitle} ${styles.glitch}`}>{site.headline}</h1>
+          <h1 className={styles.heroTitle}>{site.headline}</h1>
           <p className={styles.heroValue}>{site.value}</p>
-          <p className={styles.heroValue}>{site.valueSecondary}</p>
 
           <div className={styles.ctaRow}>
             <Button variant="primary" href={site.resumeUrl} download>
@@ -90,13 +89,14 @@ export default function App() {
             </Button>
           </div>
 
+          <h2 className={styles.heroFirstName} aria-hidden="true">
+            Nico
+          </h2>
+          <h2 className={styles.heroLastName} aria-hidden="true">
+            Ricaldi
+          </h2>
+
         </div>
-        <h2 className={styles.heroFirstName} aria-hidden="true">
-          Nico
-        </h2>
-        <h2 className={styles.heroLastName} aria-hidden="true">
-          Ricaldi
-        </h2>
       </section>
 
       <div className={`${styles.container} ${styles.sectionContainer}`}>
