@@ -1,6 +1,7 @@
 import styles from "./Hero.module.css";
 import DitherPlanet from "./DitherPlanet";
 import Button from "./Button";
+import ShinyText from './ShinyText';
 
 type HeroProps = {
   site: {
@@ -60,12 +61,34 @@ export default function Hero({ site }: HeroProps) {
           </Button>
         </div>
 
-        <h2 className={styles.heroFirstName} aria-hidden="true">
-          Nico
-        </h2>
-        <h2 className={styles.heroLastName} aria-hidden="true">
-          Ricaldi
-        </h2>
+        <ShinyText
+          className={styles.heroFirstName}
+          text="Nico"
+          speed={3}
+          delay={3}
+          color="oklch(0.2 0.01 300)"
+          shineColor="oklch(0.15 0.01 300)"
+          spread={120}
+          direction="left"
+          yoyo={false}
+          pauseOnHover={false}
+          disabled={false}
+        />
+
+        <ShinyText
+          className={styles.heroLastName}
+          text="Ricaldi"
+          speed={3}
+          delay={4}
+          color="oklch(0.2 0.01 300)"
+          shineColor="oklch(0.15 0.01 300)"
+          spread={120}
+          direction="left"
+          yoyo={false}
+          pauseOnHover={false}
+          disabled={false}
+        />
+
       </div>
     </section>
   );

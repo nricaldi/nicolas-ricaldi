@@ -58,13 +58,13 @@
   position: absolute;
   font-size: 220px;
   color: var(--text-faint);
-  z-index: 1;
   filter: blur(0.3px);
   pointer-events: none;
+  z-index: -1;
 }
 
 .heroFirstName {
-  top: -75%;
+  top: -100%;
   left: -5%;
 }
 
@@ -89,7 +89,7 @@
   }
 
   .heroFirstName {
-    top: -50%;
+    top: -60%;
     left: -5%;
   }
 

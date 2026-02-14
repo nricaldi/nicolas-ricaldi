@@ -25,7 +25,7 @@
   --border-muted: oklch(1 0 0 / 0.08);
 
   --text: oklch(0.96 0.01 300);
-  --text-muted: oklch(0.75 0.01 300);
+  --text-muted: oklch(0.65 0.01 300);
   --text-faint: oklch(0.2 0.01 300);
 
   --primary: oklch(0.62 0.25 27);
