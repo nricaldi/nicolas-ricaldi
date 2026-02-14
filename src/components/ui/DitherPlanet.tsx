@@ -9,6 +9,7 @@ interface DitherPlanetProps {
   top?: number | string;
   left?: number | string;
   size?: number | string;
+  zIndex?: number;
   waveColor?: [number, number, number];
   disableAnimation?: boolean;
   enableMouseInteraction?: boolean;
@@ -25,6 +26,7 @@ export function DitherPlanet({
   top,
   left,
   size = 200,
+  zIndex,
   waveColor,
   disableAnimation,
   enableMouseInteraction,
@@ -39,6 +41,7 @@ export function DitherPlanet({
     position,
     top,
     left,
+    zIndex,
     width: typeof size === 'number' ? `${size}px` : size,
     height: typeof size === 'number' ? `${size}px` : size
   };

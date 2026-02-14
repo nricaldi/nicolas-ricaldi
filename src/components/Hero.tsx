@@ -20,6 +20,7 @@ export function Hero({ site }: HeroProps) {
         position="absolute"
         top="5%"
         left="70%"
+        zIndex={3}
         size={500}
         waveColor={[0.5, 0.5, 0.5]}
         disableAnimation={false}
@@ -35,6 +36,7 @@ export function Hero({ site }: HeroProps) {
         position="absolute"
         top="50%"
         left="65%"
+        zIndex={4}
         size={200}
         waveColor={[0.8, 0.3, 0.3]}
         disableAnimation={false}
