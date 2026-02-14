@@ -15,18 +15,15 @@
   --surface-elev-1: oklch(0.08 0.01 285 / 0.6);
   --surface-elev-2: oklch(0.08 0.01 285 / 0.7);
 
-  --surface-vignette-0: oklch(0.08 0.01 285 / 0);
-  --surface-vignette-1: oklch(0.08 0.01 285 / 0.25);
-  --surface-vignette-2: oklch(0.08 0.01 285 / 0.6);
-  --surface-vignette-3: oklch(0.08 0.01 285 / 0.9);
-  --surface-vignette-4: oklch(0.08 0.01 285 / 0.85);
-
   --border: oklch(1 0 0 / 0.12);
   --border-muted: oklch(1 0 0 / 0.08);
 
   --text: oklch(0.96 0.01 300);
   --text-muted: oklch(0.65 0.01 300);
   --text-faint: oklch(0.2 0.01 300);
+
+  --hero-name-color: oklch(0.2 0.01 300);
+  --hero-name-color-highlight: oklch(0.175 0.01 300);
 
   --primary: oklch(0.62 0.25 27);
   --primary-light: oklch(0.72 0.22 27);

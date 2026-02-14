@@ -3,7 +3,6 @@ export const site = {
   name: 'Nicolas Ricaldi',
   role: 'Full Stack Software Developer',
   value: 'Designing and engineering software where usability meets scale.',
-  valueSecondary: 'Complex applications, designed to feel simple.',
   resumeUrl: '/resume.pdf',
   email: 'nicoricaldi.dev@gmail.com',
   location: 'Remote / Northern Virginia',

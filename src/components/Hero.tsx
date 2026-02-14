@@ -43,14 +43,13 @@ export default function Hero({ site }: HeroProps) {
         colorNum={4}
         waveAmplitude={0.3}
         waveFrequency={3}
-        waveSpeed={0.1}
+        waveSpeed={0.15}
       />
 
       <div className={styles.heroContainer}>
         <div className={styles.heroRole}>{site.role}</div>
         <h1 className={styles.heroTitle}>{site.headline}</h1>
         <p className={styles.heroValue}>{site.value}</p>
-        {site.valueSecondary ? <p className={styles.heroValue}>{site.valueSecondary}</p> : null}
 
         <div className={styles.ctaRow}>
           <Button variant="primary" href={site.resumeUrl} download>
@@ -65,9 +64,9 @@ export default function Hero({ site }: HeroProps) {
           className={styles.heroFirstName}
           text="Nico"
           speed={3}
-          delay={3}
-          color="oklch(0.2 0.01 300)"
-          shineColor="oklch(0.15 0.01 300)"
+          delay={10}
+          color="var(--hero-name-color)"
+          shineColor="var(--hero-name-color-highlight)"
           spread={120}
           direction="left"
           yoyo={false}
@@ -79,9 +78,9 @@ export default function Hero({ site }: HeroProps) {
           className={styles.heroLastName}
           text="Ricaldi"
           speed={3}
-          delay={4}
-          color="oklch(0.2 0.01 300)"
-          shineColor="oklch(0.15 0.01 300)"
+          delay={12}
+          color="var(--hero-name-color)"
+          shineColor="var(--hero-name-color-highlight)"
           spread={120}
           direction="left"
           yoyo={false}
