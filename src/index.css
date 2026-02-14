@@ -18,8 +18,9 @@
   --panel-border: rgba(255, 255, 255, 0.08);
   --panel-border-strong: rgba(255, 255, 255, 0.16);
   --text: #f4f3f6;
-  --muted: rgba(244, 243, 246, 0.68);
-  --faint: rgba(244, 243, 246, 0.45);
+  --text-muted: rgba(244, 243, 246, 0.68);
+  --text-dark: rgba(244, 243, 246, 0.45);
+  --text-dark-muted: rgba(244, 243, 246, 0.28);
   --accent: #ef2b2d;
   --accent-soft: rgba(239, 43, 45, 0.22);
   --glow: rgba(239, 43, 45, 0.35);

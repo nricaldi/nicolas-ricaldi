@@ -1,5 +1,6 @@
 import styles from "./App.module.css";
 import DitherPlanet from "./components/DitherPlanet";
+import Button from "./components/Button";
 import { site, toolbox, workItems, statusLines, socials } from "./content";
 
 const GithubIcon = () => (
@@ -81,12 +82,12 @@ export default function App() {
           <p className={styles.heroValue}>{site.valueSecondary}</p>
 
           <div className={styles.ctaRow}>
-            <a className={styles.buttonPrimary} href={site.resumeUrl} download>
+            <Button variant="primary" href={site.resumeUrl} download>
               Download Resume
-            </a>
-            <a className={styles.buttonGhost} href="#contact">
+            </Button>
+            <Button variant="ghost" href="#contact">
               Contact
-            </a>
+            </Button>
           </div>
 
         </div>
@@ -215,9 +216,9 @@ export default function App() {
                   Message
                 </label>
                 <textarea className={styles.textarea} id="message" name="message" placeholder="Project scope, timeline, budget" />
-                <button type="button" className={styles.buttonGhost}>
+                <Button type="button" variant="ghost">
                   Send message (TODO: wire Formspree)
-                </button>
+                </Button>
               </form>
             </div>
           </section>
