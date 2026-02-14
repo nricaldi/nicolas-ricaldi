@@ -67,7 +67,7 @@
 }
 
 .card::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(120deg, var(--primary-soft), transparent 45%);
@@ -303,8 +303,8 @@
   .grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-template-areas:
-      "about about about about status status status status work work work work"
-      "contact contact contact contact contact contact footer footer footer footer footer footer";
+      'about about about about status status status status work work work work'
+      'contact contact contact contact contact contact footer footer footer footer footer footer';
   }
 
   .about {

@@ -1,7 +1,7 @@
-import type { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
-import styles from "./Button.module.css";
+import type { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import styles from './Button.module.css';
 
-type Variant = "primary" | "ghost";
+type Variant = 'primary' | 'ghost';
 
 type ButtonProps = {
   variant?: Variant;
@@ -16,16 +16,10 @@ type AnchorProps = {
 
 type Props = ButtonProps | AnchorProps;
 
-export default function Button({
-  variant = "primary",
-  className,
-  ...props
-}: Props) {
-  const classes = [styles.button, styles[variant], className]
-    .filter(Boolean)
-    .join(" ");
+export default function Button({ variant = 'primary', className, ...props }: Props) {
+  const classes = [styles.button, styles[variant], className].filter(Boolean).join(' ');
 
-  if ("href" in props) {
+  if ('href' in props) {
     const { href, ...rest } = props;
     return (
       <a className={classes} href={href} {...rest}>

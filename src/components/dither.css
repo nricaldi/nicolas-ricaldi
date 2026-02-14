@@ -13,7 +13,7 @@
 }
 
 .dither-planet::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -25,9 +25,5 @@
       var(--surface-vignette-2) 70%,
       var(--surface-vignette-3) 100%
     ),
-    linear-gradient(
-      90deg,
-      var(--surface-vignette-4) 0%,
-      var(--surface-vignette-0) 35%
-    );
+    linear-gradient(90deg, var(--surface-vignette-4) 0%, var(--surface-vignette-0) 35%);
 }

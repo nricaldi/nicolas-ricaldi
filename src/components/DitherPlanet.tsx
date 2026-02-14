@@ -1,8 +1,8 @@
-import type { CSSProperties } from "react";
-import Dither from "./dither";
-import "./dither.css";
+import type { CSSProperties } from 'react';
+import Dither from './dither';
+import './dither.css';
 
-type PositionValue = "relative" | "absolute" | "fixed" | "sticky";
+type PositionValue = 'relative' | 'absolute' | 'fixed' | 'sticky';
 
 interface DitherPlanetProps {
   position?: PositionValue;
@@ -21,7 +21,7 @@ interface DitherPlanetProps {
 }
 
 export default function DitherPlanet({
-  position = "relative",
+  position = 'relative',
   top,
   left,
   size = 200,
@@ -33,14 +33,14 @@ export default function DitherPlanet({
   waveAmplitude,
   waveFrequency,
   waveSpeed,
-  pixelSize,
+  pixelSize
 }: DitherPlanetProps) {
   const style: CSSProperties = {
     position,
     top,
     left,
-    width: typeof size === "number" ? `${size}px` : size,
-    height: typeof size === "number" ? `${size}px` : size,
+    width: typeof size === 'number' ? `${size}px` : size,
+    height: typeof size === 'number' ? `${size}px` : size
   };
 
   return (
