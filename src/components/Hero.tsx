@@ -1,7 +1,7 @@
 import styles from "./Hero.module.css";
 import DitherPlanet from "./DitherPlanet";
 import Button from "./Button";
-import ShinyText from './ShinyText';
+import ShinyText from "./ShinyText";
 
 type HeroProps = {
   site: {
@@ -50,7 +50,9 @@ export default function Hero({ site }: HeroProps) {
         <div className={styles.heroRole}>{site.role}</div>
         <h1 className={styles.heroTitle}>{site.headline}</h1>
         <p className={styles.heroValue}>{site.value}</p>
-        {site.valueSecondary ? <p className={styles.heroValue}>{site.valueSecondary}</p> : null}
+        {site.valueSecondary ? (
+          <p className={styles.heroValue}>{site.valueSecondary}</p>
+        ) : null}
 
         <div className={styles.ctaRow}>
           <Button variant="primary" href={site.resumeUrl} download>
@@ -88,7 +90,6 @@ export default function Hero({ site }: HeroProps) {
           pauseOnHover={false}
           disabled={false}
         />
-
       </div>
     </section>
   );

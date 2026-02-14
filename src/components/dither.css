@@ -17,12 +17,17 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 70% 40%,
       var(--surface-vignette-0) 0%,
       var(--surface-vignette-1) 45%,
       var(--surface-vignette-2) 70%,
       var(--surface-vignette-3) 100%
     ),
-    linear-gradient(90deg, var(--surface-vignette-4) 0%, var(--surface-vignette-0) 35%);
+    linear-gradient(
+      90deg,
+      var(--surface-vignette-4) 0%,
+      var(--surface-vignette-0) 35%
+    );
 }

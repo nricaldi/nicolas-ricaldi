@@ -33,14 +33,14 @@ export default function DitherPlanet({
   waveAmplitude,
   waveFrequency,
   waveSpeed,
-  pixelSize
+  pixelSize,
 }: DitherPlanetProps) {
   const style: CSSProperties = {
     position,
     top,
     left,
     width: typeof size === "number" ? `${size}px` : size,
-    height: typeof size === "number" ? `${size}px` : size
+    height: typeof size === "number" ? `${size}px` : size,
   };
 
   return (

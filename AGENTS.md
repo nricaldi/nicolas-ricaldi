@@ -5,6 +5,7 @@ No build, lint, or test configuration files are present yet. Treat this file
 as a baseline guide for new code and for future updates as the project grows.
 
 ## Quick Facts
+
 - Repo root: `/Users/nicoricaldi/dev/nicolas-ricaldi`
 - Existing rules: none found in `.cursor/rules/`, `.cursorrules`, or
   `.github/copilot-instructions.md`.

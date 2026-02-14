@@ -1,7 +1,9 @@
-@import url('https://db.onlinewebfonts.com/c/29ddb4605533a38e086b48fa105e0d12?family=Nohemi');
+@import url("https://db.onlinewebfonts.com/c/29ddb4605533a38e086b48fa105e0d12?family=Nohemi");
 
 :root {
-  --mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --mono:
+    "JetBrains Mono", "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo,
+    monospace;
 
   --bg-dark: oklch(0.03 0.005 285);
   --bg: oklch(0.175 0.005 285);
