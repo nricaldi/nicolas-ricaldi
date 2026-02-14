@@ -1,0 +1,100 @@
+.hero {
+  display: grid;
+  height: 80vh;
+  padding-top: 24px;
+  place-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  max-width: 1160px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.heroContainer a,
+.heroContainer button {
+  pointer-events: auto;
+}
+
+.heroRole {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: clamp(36px, 4vw, 4.75rem);
+  font-weight: 600;
+  max-width: 70%;
+  line-height: 1.08;
+  z-index: 2;
+}
+
+.heroValue {
+  color: var(--text-muted);
+  max-width: 440px;
+  font-size: 16px;
+  margin-top: 10px;
+  z-index: 2;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+  z-index: 2;
+}
+
+.heroFirstName,
+.heroLastName {
+  position: absolute;
+  font-size: 220px;
+  color: var(--text-faint);
+  z-index: 1;
+  filter: blur(0.3px);
+  pointer-events: none;
+}
+
+.heroFirstName {
+  top: -75%;
+  left: -5%;
+}
+
+.heroLastName {
+  bottom: -75%;
+  left: 45%;
+}
+
+@media (max-width: 899px) {
+  .heroTitle {
+    max-width: 100%;
+    font-size: clamp(32px, 8vw, 3rem);
+  }
+
+  .heroValue {
+    max-width: 100%;
+  }
+
+  .heroFirstName,
+  .heroLastName {
+    font-size: 140px;
+  }
+
+  .heroFirstName {
+    top: -50%;
+    left: -5%;
+  }
+
+  .heroLastName {
+    bottom: -65%;
+    left: 30%;
+  }
+}

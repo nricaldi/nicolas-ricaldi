@@ -91,87 +91,6 @@
   color: var(--text-muted);
 }
 
-.hero {
-  display: grid;
-  height: 80vh;
-  padding-top: 24px;
-  place-items: center;
-  position: relative;
-  width: 100%;
-}
-
-
-.heroContainer {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.heroContainer a,
-.heroContainer button {
-  pointer-events: auto;
-}
-
-.heroRole {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  z-index: 2;
-}
-
-.heroTitle {
-  font-size: clamp(36px, 4vw, 4.75rem);
-  font-weight: 600;
-  max-width: 70%;
-  line-height: 1.08;
-  z-index: 2;
-}
-
-.heroValue {
-  color: var(--text-muted);
-  max-width: 440px;
-  font-size: 16px;
-  z-index: 2;
-}
-
-.ctaRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 14px;
-  z-index: 2;
-}
-
-.buttonPrimary:focus-visible,
-.iconButton:focus-visible,
-.input:focus-visible,
-.textarea:focus-visible {
-  outline: 2px solid var(--primary-soft-5);
-  outline-offset: 2px;
-}
-
-.heroFirstName,
-.heroLastName {
-  position: absolute;
-  font-size: 220px;
-  color: var(--text-faint);
-  z-index: 0;
-  filter: blur(0.3px);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.heroFirstName {
-  top: -75%;
-  left: -5%;
-}
-
-.heroLastName {
-  bottom: -75%;
-  left: 45%;
-}
-
 .sectionTitle {
   font-weight: 600;
   font-size: 18px;
@@ -409,27 +328,4 @@
     padding: 18px;
   }
 
-  .heroTitle {
-    max-width: 100%;
-    font-size: clamp(32px, 8vw, 3rem);
-  }
-
-  .heroValue {
-    max-width: 100%;
-  }
-
-  .heroFirstName,
-  .heroLastName {
-    font-size: 140px;
-  }
-
-  .heroFirstName {
-    top: -50%;
-    left: -5%;
-  }
-
-  .heroLastName {
-    bottom: -65%;
-    left: 30%;
-  }
 }

@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
-import DitherPlanet from "./components/DitherPlanet";
 import Button from "./components/Button";
+import Hero from "./components/Hero";
 import { site, toolbox, workItems, statusLines, socials } from "./content";
 
 const GithubIcon = () => (
@@ -43,61 +43,7 @@ export default function App() {
         </header>
       </div>
 
-      <section className={styles.hero}>
-
-        <DitherPlanet
-          position="absolute"
-          top="5%"
-          left="70%"
-          size={500}
-          waveColor={[0.5, 0.5, 0.5]}
-          disableAnimation={false}
-          enableMouseInteraction
-          mouseRadius={0.5}
-          colorNum={4}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.05}
-        />
-
-        <DitherPlanet
-          position="absolute"
-          top="50%"
-          left="65%"
-          size={200}
-          waveColor={[0.8, 0.3, 0.3]}
-          disableAnimation={false}
-          enableMouseInteraction
-          mouseRadius={0.5}
-          colorNum={4}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.1}
-        />
-
-        <div className={`${styles.container} ${styles.heroContainer}`}>
-          <div className={styles.heroRole}>{site.role}</div>
-          <h1 className={styles.heroTitle}>{site.headline}</h1>
-          <p className={styles.heroValue}>{site.value}</p>
-
-          <div className={styles.ctaRow}>
-            <Button variant="primary" href={site.resumeUrl} download>
-              Download Resume
-            </Button>
-            <Button variant="ghost" href="#contact">
-              Contact
-            </Button>
-          </div>
-
-          <h2 className={styles.heroFirstName} aria-hidden="true">
-            Nico
-          </h2>
-          <h2 className={styles.heroLastName} aria-hidden="true">
-            Ricaldi
-          </h2>
-
-        </div>
-      </section>
+      <Hero site={site} />
 
       <div className={`${styles.container} ${styles.sectionContainer}`}>
         <main className={styles.grid}>
