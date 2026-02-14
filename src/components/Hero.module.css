@@ -8,16 +8,15 @@
 }
 
 .heroContainer {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
   max-width: 1160px;
-  width: 100%;
   padding: 0 20px;
+  pointer-events: none;
+  position: relative;
+  width: 100%;
+  z-index: 1;
 }
 
-.heroContainer a,
-.heroContainer button {
+.heroContainer * {
   pointer-events: auto;
 }
 
@@ -56,21 +55,14 @@
 
 .heroFirstName,
 .heroLastName {
-  position: absolute;
   font-size: 220px;
   filter: blur(0.3px);
-  pointer-events: none;
-  z-index: -1;
+  position: relative;
+  z-index: 1;
 }
 
-.heroFirstName {
-  top: -100%;
-  left: -5%;
-}
-
-.heroLastName {
-  bottom: -100%;
-  left: 45%;
+.heroLastNameContainer {
+  text-align: right;
 }
 
 @media (max-width: 899px) {
@@ -86,15 +78,6 @@
   .heroFirstName,
   .heroLastName {
     font-size: 140px;
-  }
-
-  .heroFirstName {
-    top: -60%;
-    left: -5%;
-  }
-
-  .heroLastName {
-    bottom: -65%;
-    left: 30%;
+    pointer-events: auto;
   }
 }

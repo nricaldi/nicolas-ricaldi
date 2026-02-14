@@ -11,7 +11,7 @@
 
 .button:hover,
 .button:focus-visible {
-  box-shadow: var(--glow-l);
+  box-shadow: var(--shadow-m);
 }
 
 .button:focus-visible {

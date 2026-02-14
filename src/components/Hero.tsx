@@ -47,19 +47,6 @@ export default function Hero({ site }: HeroProps) {
       />
 
       <div className={styles.heroContainer}>
-        <div className={styles.heroRole}>{site.role}</div>
-        <h1 className={styles.heroTitle}>{site.headline}</h1>
-        <p className={styles.heroValue}>{site.value}</p>
-
-        <div className={styles.ctaRow}>
-          <Button variant="primary" href={site.resumeUrl} download>
-            Download Resume
-          </Button>
-          <Button variant="ghost" href="#contact">
-            Contact
-          </Button>
-        </div>
-
         <ShinyText
           className={styles.heroFirstName}
           text="Nico"
@@ -74,19 +61,34 @@ export default function Hero({ site }: HeroProps) {
           disabled={false}
         />
 
-        <ShinyText
-          className={styles.heroLastName}
-          text="Ricaldi"
-          speed={3}
-          delay={12}
-          color="var(--hero-name-color)"
-          shineColor="var(--hero-name-color-highlight)"
-          spread={120}
-          direction="left"
-          yoyo={false}
-          pauseOnHover={false}
-          disabled={false}
-        />
+        <div className={styles.heroRole}>{site.role}</div>
+        <h1 className={styles.heroTitle}>{site.headline}</h1>
+        <p className={styles.heroValue}>{site.value}</p>
+
+        <div className={styles.ctaRow}>
+          <Button variant="primary" href={site.resumeUrl} download>
+            Download Resume
+          </Button>
+          <Button variant="ghost" href="#contact">
+            Contact
+          </Button>
+        </div>
+
+        <div className={styles.heroLastNameContainer}>
+          <ShinyText
+            className={styles.heroLastName}
+            text="Ricaldi"
+            speed={3}
+            delay={12}
+            color="var(--hero-name-color)"
+            shineColor="var(--hero-name-color-highlight)"
+            spread={120}
+            direction="left"
+            yoyo={false}
+            pauseOnHover={false}
+            disabled={false}
+          />
+        </div>
       </div>
     </section>
   );
