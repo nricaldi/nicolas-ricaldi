@@ -1,0 +1,16 @@
+.toggleButton {
+  cursor: pointer;
+  background-color: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-s);
+  transition: box-shadow 0.2s ease;
+}
+
+.toggleButton:hover,
+.toggleButton:focus-visible {
+  box-shadow: var(--shadow-m);
+}

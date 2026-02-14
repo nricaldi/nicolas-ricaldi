@@ -1,13 +1,9 @@
 import styles from './App.module.css';
 import { Button } from './components/ui/Button';
 import { Hero } from './components/Hero';
+import { LightModeToggle } from './components/ui/LightModeToggle';
 import { site, toolbox, workItems, statusLines, socials } from './content';
 import { IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
-
-const toggleMode = () => {
-  const body = document.body;
-  body.classList.toggle('light');
-}
 
 export default function App() {
   return (
@@ -19,7 +15,7 @@ export default function App() {
             <span className={styles.brandDot} />
             NR // PORTFOLIO
           </div>
-          <div onClick={toggleMode}>light</div>
+          <LightModeToggle />
         </header>
       </div>
 
