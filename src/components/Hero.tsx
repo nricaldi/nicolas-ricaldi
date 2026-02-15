@@ -49,19 +49,6 @@ export function Hero({ site }: HeroProps) {
       />
 
       <div className={styles.heroContainer}>
-        <ShinyText
-          className={styles.heroFirstName}
-          text="Nico"
-          speed={3}
-          delay={4}
-          color="var(--hero-name-color)"
-          shineColor="var(--hero-name-color-highlight)"
-          spread={120}
-          direction="left"
-          yoyo={false}
-          pauseOnHover={false}
-          disabled={false}
-        />
 
         <div className={styles.heroRole}>{site.role}</div>
         <h1 className={styles.heroTitle}>{site.headline}</h1>
@@ -76,21 +63,6 @@ export function Hero({ site }: HeroProps) {
           </Button>
         </div>
 
-        <div className={styles.heroLastNameContainer}>
-          <ShinyText
-            className={styles.heroLastName}
-            text="Ricaldi"
-            speed={3}
-            delay={6}
-            color="var(--hero-name-color)"
-            shineColor="var(--hero-name-color-highlight)"
-            spread={120}
-            direction="left"
-            yoyo={false}
-            pauseOnHover={false}
-            disabled={false}
-          />
-        </div>
       </div>
     </section>
   );

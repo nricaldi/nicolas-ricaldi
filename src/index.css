@@ -19,9 +19,9 @@
   --hero-name-color: oklch(0.2 0 300);
   --hero-name-color-highlight: oklch(0.25 0 300);
 
-  --primary-light: oklch(0.8 0.2 27);
-  --primary: oklch(0.6 0.25 27);
-  --primary-dark: oklch(0.4 0.25 27);
+  --primary-light: oklch(0.92 0.1 20);
+  --primary: oklch(0.5 0.25 20);
+  --primary-dark: oklch(0.3 0.25 20);
 
   --primary-highlight: oklch(0.6 0.25 27 / 0.35);
 
@@ -49,8 +49,9 @@
     0 0 8px oklch(0.6 0.25 27 / 0.2);
 
   --glow-l:
-    0 0 6px oklch(0.6 0.25 27 / 0.3),
-    0 0 10px oklch(0.6 0.25 27 / 0.2);
+    inset 0 1px 2px #ffffff70,
+    0 2px 6px oklch(0.6 0.25 27 / 0.5),
+    0 4px 10px oklch(0.6 0.25 27 / 0.4);
 
   color-scheme: dark;
   font-family: 'Nohemi', 'Segoe UI', sans-serif;

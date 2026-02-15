@@ -2,6 +2,7 @@ import styles from './App.module.css';
 import { Button } from './components/ui/Button';
 import { Hero } from './components/Hero';
 import { LightModeToggle } from './components/ui/LightModeToggle';
+import { ShinyText } from './components/ui/ShinyText';
 import { site, toolbox, workItems, statusLines, socials } from './content';
 import { IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
 
@@ -13,7 +14,12 @@ export default function App() {
         <header className={styles.topBar}>
           <div className={styles.brand}>
             <span className={styles.brandDot} />
-            NR // PORTFOLIO
+            <ShinyText
+              text="Nico Ricaldi"
+              speed={4}
+              color="var(--text-muted)"
+              delay={2}
+              />
           </div>
           <LightModeToggle />
         </header>

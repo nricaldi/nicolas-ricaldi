@@ -6,7 +6,11 @@
   font-weight: 500;
   gap: 8px;
   padding: 10px 16px;
-  transition: box-shadow 0.2s ease, border-radius 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    border-radius 0.2s ease,
+    color 0.2s ease;
 }
 
 .button:hover,
@@ -21,21 +25,23 @@
 
 .primary {
   background-color: var(--primary);
-  color: var(--bg-dark);
+  color: var(--bg);
 }
 
 .primary:hover,
 .primary:focus-visible {
   border-radius: 12px;
+  box-shadow: var(--glow-l);
 }
 
 .ghost {
   background-color: var(--bg);
-  color: var(--text);
+  color: var(--text-muted);
 }
 
 .ghost:hover,
 .ghost:focus-visible {
+  background-color: var(--bg-light);
   border-radius: 12px;
   color: var(--text);
 }
