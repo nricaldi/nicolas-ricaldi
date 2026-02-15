@@ -1,6 +1,6 @@
 .toggleButton {
   cursor: pointer;
-  background: transparent;
+  background-color: transparent;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -29,7 +29,7 @@
   --thumb-bg-light: oklch(0.98 0 264);
   position: relative;
   border-radius: 999px;
-  background: var(--track-bg-dark);
+  background-color: var(--track-bg-dark);
   padding: var(--track-padding);
   box-sizing: border-box;
   display: inline-flex;
@@ -45,11 +45,16 @@
   inset: 2px;
   border-radius: inherit;
   pointer-events: none;
-  background: var(--track-bg-dark);
+  background-color: var(--track-bg-dark);
   box-shadow:
     inset 0 2px 6px oklch(0 0 0 / 0.5),
     inset 0 1px 2px oklch(0 0 0 / 0.4),
     inset 0 -1px 2px oklch(1 0 0 / 0.08);
+
+  transition:
+    background-color var(--transition-duration) ease,
+    border-color var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
 }
 
 .thumb {
@@ -58,7 +63,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(180deg, oklch(0.25 0 264), oklch(0.18 0 264));
+  background-color: linear-gradient(180deg, oklch(0.25 0 264), oklch(0.18 0 264));
   box-shadow:
     0 2px 6px oklch(0 0 0 / 0.4),
     inset 0 1px 2px oklch(1 0 0 / 0.15);
@@ -66,37 +71,30 @@
   padding: 6px;
   transform: translateX(0);
   cursor: grab;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.2s ease;
+  transition: transform var(--transition-duration) ease;
 }
 
 :global(body.light) .track {
-  background: var(--track-bg-light);
+  background-color: var(--track-bg-light);
 }
 
 :global(body.light) .track::before {
-  background: var(--track-bg-light);
-  box-shadow:
-    inset 0 4px 14px oklch(0 0 0 / 0.12),
-    inset 0 1px 4px oklch(0 0 0 / 0.08),
-    inset 0 -2px 8px oklch(1 0 0 / 0.35);
+  background-color: var(--track-bg-light);
 }
 
 :global(body.light) .thumb {
-  background: linear-gradient(180deg, var(--thumb-bg-light), oklch(0.96 0 264));
+  background-color: linear-gradient(180deg, var(--thumb-bg-light), oklch(0.96 0 264));
   box-shadow:
     0 2px 6px oklch(0 0 0 / 0.12),
     inset 0 1px 2px oklch(1 0 0 / 0.7);
 }
 
 :global(body:not(.light)) .track {
-  background: var(--track-bg-dark);
+  background-color: var(--track-bg-dark);
 }
 
 :global(body:not(.light)) .track::before {
-  background: var(--track-bg-dark);
+  background-color: var(--track-bg-dark);
 }
 
 .spacer {
@@ -113,4 +111,118 @@
 
 :global(body.light) .toggleButton:focus-visible {
   outline-color: oklch(0.72 0.02 250 / 0.6);
+}
+
+/* Icon animation with fade + rotate + bouncy pop */
+.iconWrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+}
+
+.iconSun,
+.iconMoon {
+  position: absolute;
+  inset: 0;
+}
+
+/* Keyframes for bouncy pop animation with rotation */
+/* Sun rotates clockwise (positive), Moon rotates counter-clockwise (negative) */
+
+/* Sun entering: clockwise rotation from +20deg */
+@keyframes iconPopInSun {
+  0% {
+    opacity: 0;
+    transform: rotate(20deg) scale(0.92);
+    filter: blur(1px);
+  }
+  45% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1.06);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Moon entering: counter-clockwise rotation from -20deg */
+@keyframes iconPopInMoon {
+  0% {
+    opacity: 0;
+    transform: rotate(-20deg) scale(0.92);
+    filter: blur(1px);
+  }
+  45% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1.06);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Sun exiting: clockwise rotation to +20deg */
+@keyframes iconPopOutSun {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(20deg) scale(0.92);
+    filter: blur(1px);
+  }
+}
+
+/* Moon exiting: counter-clockwise rotation to -20deg */
+@keyframes iconPopOutMoon {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-20deg) scale(0.92);
+    filter: blur(1px);
+  }
+}
+
+/* Default: dark mode (moon visible with pop, sun hidden) */
+.iconSun {
+  opacity: 0;
+  transform: rotate(20deg) scale(0.92);
+  filter: blur(1px);
+  animation: iconPopOutSun 280ms ease-out forwards;
+}
+
+.iconMoon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  filter: blur(0);
+  animation: iconPopInMoon 320ms ease-out forwards;
+}
+
+/* Light mode: sun visible with pop, moon hidden */
+:global(body.light) .iconSun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  filter: blur(0);
+  animation: iconPopInSun 320ms ease-out forwards;
+}
+
+:global(body.light) .iconMoon {
+  opacity: 0;
+  transform: rotate(-20deg) scale(0.92);
+  filter: blur(1px);
+  animation: iconPopOutMoon 280ms ease-out forwards;
 }

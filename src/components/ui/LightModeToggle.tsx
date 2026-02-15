@@ -227,15 +227,22 @@ export function LightModeToggle() {
             transition: isDragging ? 'none' : undefined
           }}
         >
-          {lightModeEnabled ? (
-            <IconSun size={iconSize} color="var(--text-muted)" stroke={2} />
-          ) : (
-            <IconMoonStars size={iconSize} color="var(--text)" stroke={2} />
-          )}
+          <span className={styles.iconWrap}>
+            <IconSun
+              size={iconSize}
+              color="var(--text-muted)"
+              stroke={2}
+              className={styles.iconSun}
+            />
+            <IconMoonStars
+              size={iconSize}
+              color="var(--text)"
+              stroke={2}
+              className={styles.iconMoon}
+            />
+          </span>
         </span>
-        <span className={styles.spacer} aria-hidden="true">
-          <IconSun size={iconSize} color="transparent" stroke={2} />
-        </span>
+        <span className={styles.spacer} aria-hidden="true" />
       </span>
     </button>
   );

@@ -60,9 +60,6 @@
   box-shadow: var(--shadow-s);
   backdrop-filter: blur(18px);
   overflow: hidden;
-  transition:
-    border 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
 .monoLabel {
@@ -182,7 +179,6 @@
   justify-content: center;
   color: var(--text);
   background: var(--bg-light);
-  transition: all 0.2s ease;
 }
 
 .iconButton:hover,
@@ -202,9 +198,6 @@
   border-radius: 10px;
   padding: 10px 12px;
   color: var(--text);
-  transition:
-    border 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
 .textarea {

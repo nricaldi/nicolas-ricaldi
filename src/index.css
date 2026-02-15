@@ -53,6 +53,8 @@
     0 2px 6px oklch(0.6 0.25 27 / 0.5),
     0 4px 10px oklch(0.6 0.25 27 / 0.4);
 
+  --transition-duration: 500ms;
+
   color-scheme: dark;
   font-family: 'Nohemi', 'Segoe UI', sans-serif;
   line-height: 1.4;
@@ -80,6 +82,13 @@ body.light {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  transition:
+    background-color var(--transition-duration) ease,
+    border-color var(--transition-duration) ease,
+    border-radius var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease,
+    color var(--transition-duration) ease;
 }
 
 body {
