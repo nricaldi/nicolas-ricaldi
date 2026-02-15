@@ -1,16 +1,66 @@
 .toggleButton {
   cursor: pointer;
-  background-color: var(--bg-light);
-  display: flex;
+  background: transparent;
+  border: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 4px;
-  border-radius: 8px;
-  box-shadow: var(--shadow-s);
-  transition: box-shadow 0.2s ease;
+  position: relative;
 }
 
-.toggleButton:hover,
 .toggleButton:focus-visible {
-  box-shadow: var(--shadow-m);
+  outline: 2px solid oklch(0.78 0.02 250 / 0.6);
+  outline-offset: 4px;
+}
+
+.track {
+  --track-padding: 6px;
+  --track-bg-light: oklch(0.91 0 264);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  width: max-content;
+  border-radius: 999px;
+  background: var(--track-bg-light);
+  padding: var(--track-padding);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--track-bg-light);
+  box-shadow:
+    inset 0 3px 12px oklch(0 0 0 / 0.08),
+    inset 0 1px 3px oklch(0 0 0 / 0.06),
+    inset 0 -2px 6px oklch(1 0 0 / 0.25);
+}
+
+:global(body.light) .track {
+  background: var(--track-bg-light);
+}
+
+:global(body.light) .track::before {
+  background: var(--track-bg-light);
+  box-shadow:
+    inset 0 4px 14px oklch(0 0 0 / 0.1),
+    inset 0 1px 4px oklch(0 0 0 / 0.08),
+    inset 0 -2px 8px oklch(1 0 0 / 0.3);
+}
+
+:global(body.light) .thumb {
+  transform: translateX(0);
+}
+
+:global(body.light) .toggleButton:focus-visible {
+  outline-color: oklch(0.72 0.02 250 / 0.6);
 }
