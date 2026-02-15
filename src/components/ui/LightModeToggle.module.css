@@ -7,6 +7,12 @@
   justify-content: center;
   padding: 4px;
   position: relative;
+  user-select: none;
+  touch-action: none;
+}
+
+.isDragging .thumb {
+  cursor: grabbing;
 }
 
 .toggleButton:focus-visible {
@@ -30,6 +36,7 @@
   align-items: center;
   gap: var(--track-gap);
   z-index: 1;
+  cursor: pointer;
 }
 
 .track::before {
@@ -58,6 +65,7 @@
   z-index: 2;
   padding: 6px;
   transform: translateX(0);
+  cursor: grab;
   transition:
     transform 0.25s ease,
     background 0.25s ease,
@@ -77,7 +85,6 @@
 }
 
 :global(body.light) .thumb {
-  transform: translateX(calc(100% + var(--track-gap)));
   background: linear-gradient(180deg, var(--thumb-bg-light), oklch(0.96 0 264));
   box-shadow:
     0 2px 6px oklch(0 0 0 / 0.12),
@@ -101,6 +108,7 @@
   height: 16px;
   box-sizing: content-box;
   visibility: hidden;
+  pointer-events: none;
 }
 
 :global(body.light) .toggleButton:focus-visible {
