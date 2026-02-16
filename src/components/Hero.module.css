@@ -1,0 +1,63 @@
+.hero {
+  display: grid;
+  height: 70vh;
+  padding-top: 24px;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.heroContainer {
+  max-width: 1160px;
+  padding: 0 20px;
+  pointer-events: none;
+  position: relative;
+  width: 100%;
+}
+
+.heroContainer * {
+  pointer-events: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.heroRole {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.heroTitle {
+  font-size: clamp(36px, 4vw, 4.75rem);
+  font-weight: 600;
+  max-width: 70%;
+  line-height: 1.08;
+  margin-bottom: 12px;
+}
+
+.heroValue {
+  color: var(--text-muted);
+  max-width: 440px;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: fit-content;
+}
+
+@media (max-width: 899px) {
+  .heroTitle {
+    font-size: clamp(32px, 8vw, 3rem);
+  }
+
+  .heroValue {
+    max-width: 60%;
+  }
+}

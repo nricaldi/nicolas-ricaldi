@@ -1,0 +1,33 @@
+.dither-container {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.dither-planet {
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 20px #00000030;
+}
+
+.dither-planet::after {
+  --surface-vignette-0: oklch(0.08 0.01 285 / 0);
+  --surface-vignette-1: oklch(0.08 0.01 285 / 0.25);
+  --surface-vignette-2: oklch(0.08 0.01 285 / 0.6);
+  --surface-vignette-3: oklch(0.08 0.01 285 / 0.9);
+  --surface-vignette-4: oklch(0.08 0.01 285 / 0.85);
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 70% 40%,
+      var(--surface-vignette-0) 0%,
+      var(--surface-vignette-1) 45%,
+      var(--surface-vignette-2) 70%,
+      var(--surface-vignette-3) 100%
+    ),
+    linear-gradient(90deg, var(--surface-vignette-4) 0%, var(--surface-vignette-0) 35%);
+}

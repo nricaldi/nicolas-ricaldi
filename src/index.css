@@ -1,0 +1,135 @@
+@import url('https://db.onlinewebfonts.com/c/29ddb4605533a38e086b48fa105e0d12?family=Nohemi');
+
+:root {
+  --mono: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --bg-dark: oklch(0.1 0 264);
+  --bg: oklch(0.2 0 264);
+  --bg-light: oklch(0.3 0 264);
+
+  --text: oklch(0.96 0 264);
+  --text-muted: oklch(0.65 0 264);
+
+  --border: oklch(.5 0 0);
+  --border-muted: oklch(.4 0 0);
+
+  --surface: oklch(0.12 0.01 285 / 0.84);
+  --surface-strong: oklch(0.14 0.01 285 / 0.95);
+
+  --hero-name-color: oklch(0.2 0 300);
+  --hero-name-color-highlight: oklch(0.25 0 300);
+
+  --primary-light: oklch(0.92 0.1 20);
+  --primary: oklch(0.5 0.25 20);
+  --primary-dark: oklch(0.3 0.25 20);
+
+  --primary-highlight: oklch(0.6 0.25 27 / 0.35);
+
+  --shadow-s:
+    inset 0 1px 2px #ffffff30,
+    0 1px 2px #00000030,
+    0 2px 4px #00000015;
+
+  --shadow-m:
+    inset 0 1px 2px #ffffff50,
+    0 2px 4px #00000030,
+    0 4px 8px #00000015;
+
+  --shadow-l:
+    inset 0 1px 2px #ffffff70,
+    0 4px 6px #00000030,
+    0 6px 10px #00000015;
+
+  --glow-s:
+    0 0 2px oklch(0.6 0.25 27 / 0.3),
+    0 0 4px oklch(0.6 0.25 27 / 0.2);
+
+  --glow-m:
+    0 0 4px oklch(0.6 0.25 27 / 0.3),
+    0 0 8px oklch(0.6 0.25 27 / 0.2);
+
+  --glow-l:
+    inset 0 1px 2px #ffffff70,
+    0 2px 6px oklch(0.6 0.25 27 / 0.5),
+    0 4px 10px oklch(0.6 0.25 27 / 0.4);
+
+  --transition-duration: 500ms;
+
+  color-scheme: dark;
+  font-family: 'Nohemi', 'Segoe UI', sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.light {
+  --bg-dark: oklch(0.92 0 264);
+  --bg: oklch(0.96 0 264);
+  --bg-light: oklch(1 0 264);
+
+  --border: oklch(.8 0 0 );
+  --border-muted: oklch(.8 0 0);
+
+  --text: oklch(0.2 0 264);
+  --text-muted: oklch(0.4 0 264);
+
+  --hero-name-color: oklch(0.875 0 264);
+  --hero-name-color-highlight: oklch(0.95 0 264);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  transition:
+    background-color var(--transition-duration) ease,
+    border-color var(--transition-duration) ease,
+    border-radius var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease,
+    color var(--transition-duration) ease;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--primary-highlight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

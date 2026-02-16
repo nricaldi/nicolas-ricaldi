@@ -1,0 +1,42 @@
+.button {
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 500;
+  gap: 8px;
+  padding: 10px 16px;
+}
+
+.button:hover,
+.button:focus-visible {
+  box-shadow: var(--shadow-m);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: var(--bg);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  border-radius: 12px;
+  box-shadow: var(--glow-l);
+}
+
+.ghost {
+  background-color: var(--bg);
+  color: var(--text-muted);
+}
+
+.ghost:hover,
+.ghost:focus-visible {
+  background-color: var(--bg-light);
+  border-radius: 12px;
+  color: var(--text);
+}
