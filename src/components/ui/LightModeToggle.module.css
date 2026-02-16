@@ -113,7 +113,7 @@
   outline-color: oklch(0.72 0.02 250 / 0.6);
 }
 
-/* Icon animation with fade + rotate + bouncy pop */
+/* Icon animation with smooth transitions */
 .iconWrap {
   position: relative;
   display: grid;
@@ -126,103 +126,35 @@
 .iconMoon {
   position: absolute;
   inset: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity var(--transition-duration) ease,
+    transform var(--transition-duration) ease,
+    filter var(--transition-duration) ease;
 }
 
-/* Keyframes for bouncy pop animation with rotation */
-/* Sun rotates clockwise (positive), Moon rotates counter-clockwise (negative) */
-
-/* Sun entering: clockwise rotation from +20deg */
-@keyframes iconPopInSun {
-  0% {
-    opacity: 0;
-    transform: rotate(20deg) scale(0.92);
-    filter: blur(1px);
-  }
-  45% {
-    opacity: 1;
-    transform: rotate(0deg) scale(1.06);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-    filter: blur(0);
-  }
-}
-
-/* Moon entering: counter-clockwise rotation from -20deg */
-@keyframes iconPopInMoon {
-  0% {
-    opacity: 0;
-    transform: rotate(-20deg) scale(0.92);
-    filter: blur(1px);
-  }
-  45% {
-    opacity: 1;
-    transform: rotate(0deg) scale(1.06);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-    filter: blur(0);
-  }
-}
-
-/* Sun exiting: clockwise rotation to +20deg */
-@keyframes iconPopOutSun {
-  0% {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(20deg) scale(0.92);
-    filter: blur(1px);
-  }
-}
-
-/* Moon exiting: counter-clockwise rotation to -20deg */
-@keyframes iconPopOutMoon {
-  0% {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(-20deg) scale(0.92);
-    filter: blur(1px);
-  }
-}
-
-/* Default: dark mode (moon visible with pop, sun hidden) */
+/* Default: dark mode (moon visible, sun hidden with clockwise rotation) */
 .iconSun {
   opacity: 0;
   transform: rotate(20deg) scale(0.92);
   filter: blur(1px);
-  animation: iconPopOutSun 280ms ease-out forwards;
 }
 
 .iconMoon {
   opacity: 1;
   transform: rotate(0deg) scale(1);
   filter: blur(0);
-  animation: iconPopInMoon 320ms ease-out forwards;
 }
 
-/* Light mode: sun visible with pop, moon hidden */
+/* Light mode: sun visible, moon hidden with counter-clockwise rotation */
 :global(body.light) .iconSun {
   opacity: 1;
   transform: rotate(0deg) scale(1);
   filter: blur(0);
-  animation: iconPopInSun 320ms ease-out forwards;
 }
 
 :global(body.light) .iconMoon {
   opacity: 0;
   transform: rotate(-20deg) scale(0.92);
   filter: blur(1px);
-  animation: iconPopOutMoon 280ms ease-out forwards;
 }
