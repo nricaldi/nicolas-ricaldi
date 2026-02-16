@@ -18,6 +18,8 @@ export function LightModeToggle() {
   const dragOffsetRef = useRef(dragOffset);
   const maxOffsetRef = useRef(getMaxOffset());
   const isDraggingRef = useRef(false);
+  const themeChangedDuringDragRef = useRef(false);
+  const suppressTrackClickRef = useRef(false);
 
   const iconSize = 16;
   const Hysteresis = 6;
@@ -27,7 +29,7 @@ export function LightModeToggle() {
     if (!trackRef.current || !thumbRef.current) return 0;
     const trackRect = trackRef.current.getBoundingClientRect();
     const thumbRect = thumbRef.current.getBoundingClientRect();
-    return Math.max(0, trackRect.width - thumbRect.width - 8); // 8 = trackPadding * 2
+    return Math.max(0, trackRect.width - thumbRect.width - 8);
   }
 
   // Sync offset with theme only when NOT dragging
@@ -77,6 +79,10 @@ export function LightModeToggle() {
     dragStartXRef.current = e.clientX;
     dragStartOffsetRef.current = currentOffset;
 
+    // Reset drag tracking
+    themeChangedDuringDragRef.current = false;
+    suppressTrackClickRef.current = true;
+
     setIsDragging(true);
     isDraggingRef.current = true;
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
@@ -100,8 +106,10 @@ export function LightModeToggle() {
 
       if (newOffset > midpoint + Hysteresis && !currentTheme) {
         updateTheme(true);
+        themeChangedDuringDragRef.current = true;
       } else if (newOffset < midpoint - Hysteresis && currentTheme) {
         updateTheme(false);
+        themeChangedDuringDragRef.current = true;
       }
     },
     [updateTheme]
@@ -131,8 +139,20 @@ export function LightModeToggle() {
         const targetOffset = currentOffset >= maxOffset / 2 ? maxOffset : 0;
         setDragOffset(targetOffset);
         dragOffsetRef.current = targetOffset;
-        updateTheme(targetOffset > 0);
+
+        // Only update theme if it didn't change during drag
+        // and we need to snap to a different state
+        const currentTheme = document.body.classList.contains('light');
+        const targetTheme = targetOffset > 0;
+        if (!themeChangedDuringDragRef.current && currentTheme !== targetTheme) {
+          updateTheme(targetTheme);
+        }
       }
+
+      // Clear suppress flag after click event would fire
+      setTimeout(() => {
+        suppressTrackClickRef.current = false;
+      }, 0);
 
       (e.target as HTMLElement).releasePointerCapture(e.pointerId);
     },
@@ -142,6 +162,7 @@ export function LightModeToggle() {
   // Handle track click - toggle to opposite side
   const handleTrackClick = useCallback(() => {
     if (isDraggingRef.current) return;
+    if (suppressTrackClickRef.current) return;
 
     const maxOffset = getMaxOffset();
     maxOffsetRef.current = maxOffset;
