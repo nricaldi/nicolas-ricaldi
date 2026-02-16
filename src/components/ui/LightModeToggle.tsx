@@ -3,75 +3,86 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { IconSun, IconMoonStars } from '@tabler/icons-react';
 
 export function LightModeToggle() {
-  const isLightModeEnabled = () => {
-    return document.body.classList.contains('light');
-  };
-
-  const [lightModeEnabled, setLightModeEnabled] = useState(() => isLightModeEnabled());
+  const [lightModeEnabled, setLightModeEnabled] = useState(() =>
+    document.body.classList.contains('light')
+  );
   const [isDragging, setIsDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState(0);
+  const [dragOffset, setDragOffset] = useState(() =>
+    document.body.classList.contains('light') ? getMaxOffset() : 0
+  );
 
   const trackRef = useRef<HTMLSpanElement>(null);
   const thumbRef = useRef<HTMLSpanElement>(null);
   const dragStartXRef = useRef(0);
   const dragStartOffsetRef = useRef(0);
-  const dragOffsetRef = useRef(0);
-  const maxOffsetRef = useRef(0);
+  const dragOffsetRef = useRef(dragOffset);
+  const maxOffsetRef = useRef(getMaxOffset());
   const isDraggingRef = useRef(false);
-  const isThumbPointerDownRef = useRef(false);
-  const preventTrackClickRef = useRef(false);
-  const didDragRef = useRef(false);
 
   const iconSize = 16;
   const Hysteresis = 6;
-  const CLICK_THRESHOLD = 4; // pixels
+  const CLICK_THRESHOLD = 4;
 
-  // Compute max offset based on track and thumb dimensions
-  const computeMaxOffset = useCallback(() => {
+  function getMaxOffset(): number {
     if (!trackRef.current || !thumbRef.current) return 0;
-
     const trackRect = trackRef.current.getBoundingClientRect();
     const thumbRect = thumbRef.current.getBoundingClientRect();
-    const trackPadding = 4; // matches --track-padding
+    return Math.max(0, trackRect.width - thumbRect.width - 8); // 8 = trackPadding * 2
+  }
 
-    return Math.max(0, trackRect.width - thumbRect.width - trackPadding * 2);
-  }, []);
-
-  // Sync drag offset with current theme
+  // Sync offset with theme only when NOT dragging
   useEffect(() => {
-    const maxOffset = computeMaxOffset();
+    if (isDraggingRef.current) return;
+
+    const maxOffset = getMaxOffset();
     maxOffsetRef.current = maxOffset;
     const targetOffset = lightModeEnabled ? maxOffset : 0;
     setDragOffset(targetOffset);
     dragOffsetRef.current = targetOffset;
-  }, [lightModeEnabled, computeMaxOffset]);
+  }, [lightModeEnabled]);
+
+  // Handle resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (isDraggingRef.current) return;
+      const newMaxOffset = getMaxOffset();
+      maxOffsetRef.current = newMaxOffset;
+      const newOffset = document.body.classList.contains('light') ? newMaxOffset : 0;
+      setDragOffset(newOffset);
+      dragOffsetRef.current = newOffset;
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const updateTheme = useCallback((enabled: boolean) => {
+    if (enabled) {
+      document.body.classList.add('light');
+    } else {
+      document.body.classList.remove('light');
+    }
+    setLightModeEnabled(enabled);
+  }, []);
 
   // Handle pointer down on thumb - start dragging
-  const handleThumbPointerDown = useCallback(
-    (e: React.PointerEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
+  const handleThumbPointerDown = useCallback((e: React.PointerEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-      const maxOffset = computeMaxOffset();
-      maxOffsetRef.current = maxOffset;
+    const maxOffset = getMaxOffset();
+    maxOffsetRef.current = maxOffset;
 
-      const startOffset = lightModeEnabled ? maxOffset : 0;
+    const currentOffset = dragOffsetRef.current;
+    dragStartXRef.current = e.clientX;
+    dragStartOffsetRef.current = currentOffset;
 
-      dragStartXRef.current = e.clientX;
-      dragStartOffsetRef.current = startOffset;
-      setDragOffset(startOffset);
-      dragOffsetRef.current = startOffset;
-      setIsDragging(true);
-      isDraggingRef.current = true;
-      isThumbPointerDownRef.current = true;
+    setIsDragging(true);
+    isDraggingRef.current = true;
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  }, []);
 
-      // Capture pointer on thumb
-      (e.target as HTMLElement).setPointerCapture(e.pointerId);
-    },
-    [computeMaxOffset, lightModeEnabled]
-  );
-
-  // Handle pointer move - update position and theme (only when dragging)
+  // Handle pointer move - update position and theme
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
       if (!isDraggingRef.current) return;
@@ -83,26 +94,20 @@ export function LightModeToggle() {
       setDragOffset(newOffset);
       dragOffsetRef.current = newOffset;
 
-      // Mark as dragged if movement exceeds threshold
-      const movement = Math.abs(e.clientX - dragStartXRef.current);
-      if (movement > CLICK_THRESHOLD) {
-        didDragRef.current = true;
-      }
-
       // Live theme update with hysteresis
       const midpoint = maxOffset / 2;
-      if (newOffset > midpoint + Hysteresis && !lightModeEnabled) {
-        document.body.classList.add('light');
-        setLightModeEnabled(true);
-      } else if (newOffset < midpoint - Hysteresis && lightModeEnabled) {
-        document.body.classList.remove('light');
-        setLightModeEnabled(false);
+      const currentTheme = document.body.classList.contains('light');
+
+      if (newOffset > midpoint + Hysteresis && !currentTheme) {
+        updateTheme(true);
+      } else if (newOffset < midpoint - Hysteresis && currentTheme) {
+        updateTheme(false);
       }
     },
-    [lightModeEnabled]
+    [updateTheme]
   );
 
-  // Handle pointer up - snap to nearest or toggle if clicked
+  // Handle pointer up - snap to nearest
   const handlePointerUp = useCallback(
     (e: React.PointerEvent) => {
       if (!isDraggingRef.current) return;
@@ -114,114 +119,55 @@ export function LightModeToggle() {
       const currentOffset = dragOffsetRef.current;
       const movement = Math.abs(e.clientX - dragStartXRef.current);
 
-      // Check if this was a click on the thumb (minimal movement)
-      if (isThumbPointerDownRef.current && movement < CLICK_THRESHOLD) {
+      // Check if this was a click (minimal movement)
+      if (movement < CLICK_THRESHOLD) {
         // Toggle to opposite side
-        const targetOffset = lightModeEnabled ? 0 : maxOffset;
+        const targetOffset = currentOffset > maxOffset / 2 ? 0 : maxOffset;
         setDragOffset(targetOffset);
         dragOffsetRef.current = targetOffset;
-
-        if (lightModeEnabled) {
-          document.body.classList.remove('light');
-          setLightModeEnabled(false);
-        } else {
-          document.body.classList.add('light');
-          setLightModeEnabled(true);
-        }
+        updateTheme(targetOffset > 0);
       } else {
-        // Snap to nearest end based on actual position
+        // Snap to nearest end
         const targetOffset = currentOffset >= maxOffset / 2 ? maxOffset : 0;
         setDragOffset(targetOffset);
         dragOffsetRef.current = targetOffset;
-
-        // Ensure theme matches final position
-        if (targetOffset > 0 && !lightModeEnabled) {
-          document.body.classList.add('light');
-          setLightModeEnabled(true);
-        } else if (targetOffset === 0 && lightModeEnabled) {
-          document.body.classList.remove('light');
-          setLightModeEnabled(false);
-        }
+        updateTheme(targetOffset > 0);
       }
 
-      isThumbPointerDownRef.current = false;
-      preventTrackClickRef.current = true;
       (e.target as HTMLElement).releasePointerCapture(e.pointerId);
-
-      // Reset flags after click event would fire
-      setTimeout(() => {
-        preventTrackClickRef.current = false;
-        didDragRef.current = false;
-      }, 0);
     },
-    [lightModeEnabled]
+    [updateTheme]
   );
 
-  // Handle track pointer down - always toggle to opposite side
-  const handleTrackPointerDown = useCallback(
-    (e: React.PointerEvent) => {
-      // Ignore if target is the thumb (thumb handles its own pointer events)
-      if ((e.target as HTMLElement).closest(`.${styles.thumb}`)) return;
+  // Handle track click - toggle to opposite side
+  const handleTrackClick = useCallback(() => {
+    if (isDraggingRef.current) return;
 
-      const maxOffset = maxOffsetRef.current;
+    const maxOffset = getMaxOffset();
+    maxOffsetRef.current = maxOffset;
 
-      // Prevent any ghost click that might fire after pointerdown
-      preventTrackClickRef.current = true;
-      setTimeout(() => {
-        preventTrackClickRef.current = false;
-      }, 0);
+    const currentTheme = document.body.classList.contains('light');
+    const targetOffset = currentTheme ? 0 : maxOffset;
 
-      // Always toggle to opposite side
-      if (lightModeEnabled) {
-        // Currently light, toggle to dark (left)
-        setDragOffset(0);
-        dragOffsetRef.current = 0;
-        document.body.classList.remove('light');
-        setLightModeEnabled(false);
-      } else {
-        // Currently dark, toggle to light (right)
-        setDragOffset(maxOffset);
-        dragOffsetRef.current = maxOffset;
-        document.body.classList.add('light');
-        setLightModeEnabled(true);
-      }
-    },
-    [lightModeEnabled]
-  );
-
-  // Handle resize to recalculate max offset
-  useEffect(() => {
-    const handleResize = () => {
-      const newMaxOffset = computeMaxOffset();
-      maxOffsetRef.current = newMaxOffset;
-      const newOffset = lightModeEnabled ? newMaxOffset : 0;
-      setDragOffset(newOffset);
-      dragOffsetRef.current = newOffset;
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [computeMaxOffset, lightModeEnabled]);
+    setDragOffset(targetOffset);
+    dragOffsetRef.current = targetOffset;
+    updateTheme(!currentTheme);
+  }, [updateTheme]);
 
   const toggleButtonClasses = [styles.toggleButton];
   if (isDragging) toggleButtonClasses.push(styles.isDragging);
 
   return (
     <button type="button" className={toggleButtonClasses.join(' ')} aria-pressed={lightModeEnabled}>
-      <span
-        className={styles.track}
-        aria-hidden="true"
-        ref={trackRef}
-        onPointerDown={handleTrackPointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
-      >
+      <span className={styles.track} aria-hidden="true" ref={trackRef} onClick={handleTrackClick}>
         <span
           className={styles.thumb}
           aria-hidden="true"
           ref={thumbRef}
           onPointerDown={handleThumbPointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
           style={{
             transform: `translateX(${dragOffset}px)`,
             transition: isDragging ? 'none' : undefined
